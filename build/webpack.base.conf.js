@@ -12,16 +12,16 @@ const isDev = process.env.NODE_ENV === 'development';
 module.exports = {
   module: {
     rules: [
-      // {
-      //   test: /\.(js|vue)$/,
-      //   loader: 'eslint-loader',
-      //   enforce: 'pre',
-      //   include: [resolve('src')],
-      //   options: {
-      //     formatter: require('eslint-friendly-formatter'),
-      //     emitWarning: true
-      //   }
-      // },
+      {
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        include: [resolve('src')],
+        options: {
+          formatter: require('eslint-friendly-formatter'),
+          emitWarning: true
+        }
+      },
       {test:/.vue$/, loader:'vue-loader', options: vueLoaderConfig},
       {
         test: /\.js$/,

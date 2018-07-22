@@ -23,9 +23,5 @@ export default {
     if (instance) {
       instance.visible = false;
     }
-  },
-
-  install(Vue) {
-    Vue.prototype.$indicator = this
   }
 };

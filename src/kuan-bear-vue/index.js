@@ -1,20 +1,27 @@
-// 全局注册packages
-const components = {}
+import Indicator from '@/packages/indicator'
+import Toast from '@/packages/toast'
 
-export function requireAll(r) {
-  return r.keys().forEach(key => {
-    const name = key.replace(/^\.\//, '').replace(/\/index.js$/, '').replace(/([A-Z])/g, '-$1').toLowerCase()
-    components[name] = r(key).default
-  })
-}
-requireAll(require.context('../packages', true, /index\.js/))
+const components = []
 
 const install = (Vue) => {
-  Object.values(components).forEach(item => {
-    Vue.use(item)
+  components.map(component => {
+    Vue.component(component.name, component)
   })
+
+  Vue.prototype.$indicator = Indicator
+  Vue.prototype.$toast = Toast
+}
+
+if (typeof window !== 'undefined' && window.Vue) {
+  install(window.Vue)
+}
+
+export {
+  install,
+  Indicator
 }
 
 export default {
-  install
+  install,
+  ...components
 }

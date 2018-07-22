@@ -1,6 +1,8 @@
 <template>
   <div>
-    <button @click="test">点击</button>
+    <button @click="showIndicator">show indicator</button>
+
+    <button @click="showToast">show toast</button>
   </div>
 </template>
 
@@ -9,12 +11,17 @@
 
   export default {
     methods: {
-      test() {
+      showIndicator() {
         this.$indicator.open()
-
         setTimeout(() => {
           this.$indicator.close()
         }, 2000)
+      },
+      showToast() {
+        this.$toast({
+          message: '哈哈哈',
+          duration: 30000
+        })
       }
     },
     components: {
