@@ -1,12 +1,25 @@
+// 组件
 import Indicator from '@/packages/indicator'
 import Toast from '@/packages/toast'
+import MyVideo from '@/packages/myVideo'
 
-const components = []
+// 自定义指令
+import copy from '@/directives/copy'
+import showClass from '@/directives/class'
+
+const components = [
+  MyVideo
+]
 
 const install = (Vue) => {
+  // 组件注册
   components.map(component => {
     Vue.component(component.name, component)
   })
+
+  // 自定义指令
+  Vue.use(copy)
+  Vue.use(showClass)
 
   Vue.prototype.$indicator = Indicator
   Vue.prototype.$toast = Toast
@@ -22,6 +35,5 @@ export {
 }
 
 export default {
-  install,
-  ...components
+  install
 }

@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 import App from './App'
 
-import kuanBearVue from './kuan-bear-vue'
+import kuanBearVue from './packages/index'
 
 Vue.use(kuanBearVue)
 
