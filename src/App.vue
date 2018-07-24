@@ -9,12 +9,11 @@
       <button v-copy="value">点击复制</button>
     </p>
 
-
     <div style="width: 500px; height: 300px;">
       <my-video autoplay src="https://www.w3cschool.cn/statics/demosource/mov_bbb.mp4"></my-video>
     </div>
 
-    <div v-for="item in 100" :key="item" v-class="'is-show'" class="test" ></div>
+    <div class="test" v-class="'is-show'" v-for="item in 100" :key="item"></div>
   </div>
 </template>
 
@@ -22,6 +21,7 @@
   export default {
     data() {
       return {
+        data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
         value: '测试复制内容'
       }
     },
@@ -46,11 +46,11 @@
 
 <style lang="scss" scoped>
   .test {
-    width: 400px;
-    height: 400px;
-    margin: 20px;
+    width: 200px;
+    height: 200px;
     background: #ccc;
-    transition: 3s;
+    margin: 20px;
+    transition: 1s;
   }
   .is-show {
     background: red;

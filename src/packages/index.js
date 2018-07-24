@@ -1,3 +1,5 @@
+import Waterfall from 'kuan-vue-waterfall'
+
 // 组件
 import Indicator from '@/packages/indicator'
 import Toast from '@/packages/toast'
@@ -11,11 +13,13 @@ const components = [
   MyVideo
 ]
 
+// 全局注册
 const install = (Vue) => {
   // 组件注册
   components.map(component => {
     Vue.component(component.name, component)
   })
+  Vue.use(Waterfall)
 
   // 自定义指令
   Vue.use(copy)
@@ -30,8 +34,13 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export {
-  install,
-  Indicator
+  Waterfall,
+  Indicator,
+  Toast,
+  MyVideo,
+  // 自定义指令
+  copy,
+  showClass
 }
 
 export default {
