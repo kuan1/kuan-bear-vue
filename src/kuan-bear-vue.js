@@ -1,13 +1,16 @@
 import Waterfall from 'kuan-vue-waterfall'
 
 // 组件
-import Indicator from '@/packages/indicator'
-import Toast from '@/packages/toast'
-import MyVideo from '@/packages/myVideo'
+import Indicator from '@/packages/indicator/index'
+import Toast from '@/packages/toast/index'
+import MyVideo from '@/packages/myVideo/index'
 
 // 自定义指令
-import copy from '@/directives/copy'
-import showClass from '@/directives/class'
+import copy from '@/directives/copy/index'
+import showClass from '@/directives/class/index'
+
+// 过滤器
+import * as filters from '@/filters'
 
 const components = [
   MyVideo
@@ -21,10 +24,14 @@ const install = (Vue) => {
   })
   Vue.use(Waterfall)
 
+  // 自定义过滤器
+  Vue.filters(filters)
+
   // 自定义指令
   Vue.use(copy)
   Vue.use(showClass)
 
+  // utils
   Vue.prototype.$indicator = Indicator
   Vue.prototype.$toast = Toast
 }
