@@ -7,7 +7,7 @@ const {getToken} = localData.auth
 
 // config.loading: 控制loading；config.alert: 控制播报
 
-export function createRequest(options = {}) {
+export default function(options = {}) {
   // 默认参数
   const {
     timeout = 3000,
@@ -69,5 +69,3 @@ export function createRequest(options = {}) {
   )
   return service
 }
-
-export default createRequest()
