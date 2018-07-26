@@ -12,6 +12,8 @@ import showClass from '@/directives/class/index'
 // 过滤器
 import * as filters from '@/filters'
 
+import {createRequest} from '@/utils'
+
 const components = [
   MyVideo
 ]
@@ -47,7 +49,8 @@ export {
   MyVideo,
   // 自定义指令
   copy,
-  showClass
+  showClass,
+  createRequest
 }
 
 export default {

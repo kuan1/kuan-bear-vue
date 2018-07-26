@@ -1,67 +1,73 @@
 import axios from 'axios'
-import store from '@/store/index'
 import errorHandle from './errorHandle'
-import Toast from '@/packages/toast'
+import localData from '@/utils/localData'
+import loadingCtrl from './loading'
 
-import loading from './loading'
+const {getToken} = localData.auth
 
-// axios 实例
-const service = axios.create({
-  baseURL: '/',
-  timeout: 10000 // 超时
-})
+// config.loading: 控制loading；config.alert: 控制播报
 
-// request interceptor
-service.interceptors.request.use(
-  config => {
-    const { token } = store.state.user
-    if (token) {
-      config.headers['Authorization'] = `Bearer ${token}` // token
+export function createRequest(options = {}) {
+  // 默认参数
+  const {
+    timeout = 3000,
+    baseURL,
+    headers = {
+      // 'X-Halo-App': 'test'
+    },
+    customError = () => {
     }
-    config.headers['X-Halo-App'] = 'wfc2018-jury-dashboard'
-    return config
-  },
-  error => {
-    console.error(error) // for debug
-    Promise.reject(error)
-  }
-)
+  } = options
 
-// respone interceptor
-service.interceptors.response.use(
-  response => {
-    // 此处可以根据状态吗可以做一些逻辑处理
-    const { data, config } = response
-    if (config.isLoading) loading.hide() // 关闭loading
+  // axios 实例
+  const service = axios.create({
+    baseURL,
+    timeout, // 超时
+    headers
+  })
 
-    if (!data.success && !data.iRet) {
-      let info = ''
-      if (data.info) {
-        info = data.info
-        Toast(info)
+  // request interceptor
+  service.interceptors.request.use(
+    config => {
+      // 携带token
+      const token = getToken()
+      if (token) {
+        config.headers['Authorization'] = `Bearer ${token}` // token
       }
-      throw new Error(info)
-    } else {
-      return response.data
+      //  显示loading
+      if (config.loading !== false) {
+        loadingCtrl.show()
+      }
+      // 自定义错误处理
+      return config
+    },
+    error => {
+      console.error(error) // for debug
+      Promise.reject(error)
     }
-  },
-  error => {
-    const { config = {} } = error.response || {}
-    const { isLoading = true } = config
-    if (isLoading) {
-      loading.hide()
-    }
-    errorHandle(error)
-    return Promise.reject(error)
-  }
-)
+  )
 
-/**
- * data axios参数
- * @type {{url: string, data: any, params: object, methods: string}}
- */
-export default (data, { isLoading = true } = {}) => {
-  data.isLoading = isLoading
-  if (isLoading) loading.show() // 显示loading
-  return service(data)
-};
+  // respone interceptor
+  service.interceptors.response.use(
+    response => {
+      // 此处可以根据状态吗可以做一些逻辑处理
+      const {data, config = {}} = response
+
+      if (config.loading !== false) loadingCtrl.hide() // 关闭loading
+
+      if (!data.success && !data.iRet) {
+        const error = new Error(data.info || data.error)
+        errorHandle(error, customError)
+      }
+      return response.data
+    },
+    error => {
+      loadingCtrl.hide() // 隐藏loading
+      errorHandle(error, customError)
+      return Promise.reject(error)
+    }
+  )
+  return service
+}
+
+export default createRequest()

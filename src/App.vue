@@ -12,16 +12,15 @@
       <button v-copy="value">点击复制</button>
     </p>
 
-    <div style="width: 500px; height: 300px;">
-      <my-video autoplay src="https://www.w3cschool.cn/statics/demosource/mov_bbb.mp4"></my-video>
-    </div>
+    <!--<div style="width: 500px; height: 300px;">-->
+      <!--<my-video autoplay src="https://www.w3cschool.cn/statics/demosource/mov_bbb.mp4"></my-video>-->
+    <!--</div>-->
 
     <!--<div class="test" v-class="'is-show'" v-for="item in 100" :key="item"></div>-->
   </div>
 </template>
 
 <script>
-  console.log(11, process.env)
   export default {
     data() {
       return {
@@ -31,6 +30,9 @@
     },
     methods: {
       test() {
+        this.$http({
+          url: 'http://localhost:8002/api/test'
+        })
       },
       showIndicator() {
         this.$indicator.open()

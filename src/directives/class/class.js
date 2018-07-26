@@ -18,7 +18,6 @@ export default {
   },
   unbind: function (el, binding) {
     if (binding.addClass) {
-      console.log(1234)
       window.removeEventListener('scroll', binding.addClass)
       console.log('取消事件绑定')
     }

@@ -1,4 +1,4 @@
-import Indicator from '@/packages/indicator/Indicator'
+import Indicator from '@/packages/indicator'
 
 /**
  *  loading控制
@@ -10,7 +10,6 @@ export default {
     if (this.num === 1) {
       // 显示loading
       Indicator.open({
-        // spinnerType: 'fading-circle'
       })
     }
   },
