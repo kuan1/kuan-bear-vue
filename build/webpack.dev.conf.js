@@ -17,6 +17,7 @@ const PORT = 8088
 
 const webpackConfig = merge(common, {
   mode: 'development',
+  entry: resolve('src/dev-entry'),
   plugins: [
     new CopyWebpackPlugin([
       {
@@ -52,7 +53,7 @@ const webpackConfig = merge(common, {
     historyApiFallback: false,
     noInfo: false,
     stats: 'minimal',
-    open: true
+    open: false
   },
 });
 

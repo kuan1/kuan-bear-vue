@@ -5,7 +5,6 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const config = merge(base, {
   context: path.resolve(__dirname, '..'),
-  entry: './src/kuan-bear-vue',
   output: {
     path: path.resolve(__dirname, '..', 'lib'),
     filename: 'kuan-bear-vue.min.js',
@@ -18,7 +17,8 @@ const config = merge(base, {
     // ,
     // new webpack.DefinePlugin({
     //   'process.env': {
-    //     NODE_ENV: '"production"'
+    //     NODE_ENV: '"production"',
+    // process.env.npm_package_name
     //   }
     // })
   ]

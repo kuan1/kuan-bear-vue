@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 const vueLoaderConfig = require('./vue-loader.conf')
@@ -8,6 +9,8 @@ function resolve(dir) {
 }
 
 const isDev = process.env.NODE_ENV === 'development';
+
+console.log(process.env.npm_package_name)
 
 module.exports = {
   module: {
@@ -55,6 +58,11 @@ module.exports = {
   },
   plugins: [
     // make sure to include the plugin!
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        name: JSON.stringify(process.env.npm_package_name)
+      }
+    })
   ],
 };

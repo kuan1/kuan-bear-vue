@@ -1,5 +1,8 @@
 <template>
   <div>
+    <button @click="test">测试http方法</button>
+    <hr>
+
     <button @click="showIndicator">show indicator</button>
 
     <button @click="showToast">show toast</button>
@@ -13,11 +16,12 @@
       <my-video autoplay src="https://www.w3cschool.cn/statics/demosource/mov_bbb.mp4"></my-video>
     </div>
 
-    <div class="test" v-class="'is-show'" v-for="item in 100" :key="item"></div>
+    <!--<div class="test" v-class="'is-show'" v-for="item in 100" :key="item"></div>-->
   </div>
 </template>
 
 <script>
+  console.log(11, process.env)
   export default {
     data() {
       return {
@@ -26,6 +30,8 @@
       }
     },
     methods: {
+      test() {
+      },
       showIndicator() {
         this.$indicator.open()
         setTimeout(() => {

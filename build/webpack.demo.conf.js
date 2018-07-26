@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 
 const config = merge(base, {
-  context: path.resolve(__dirname, '../'),
+  context: path.resolve(__dirname, '../dev-entry'),
   output: {
     path: path.resolve(__dirname, '..', 'demo'),
   },
