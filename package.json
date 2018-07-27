@@ -1,6 +1,6 @@
 {
   "name": "kuan-bear-vue",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "公司vue项目，个人习惯整理",
   "main": "index.js",
   "scripts": {

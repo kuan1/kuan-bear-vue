@@ -1,5 +1,3 @@
-import * as auth from './auth'
-
 /**
  * 设置localStorage过期时间
  * @param key{string}
@@ -30,5 +28,4 @@ export function getLocalData(key) {
 export default {
   get: getLocalData,
   set: setLocalData,
-  auth
 }

@@ -12,7 +12,7 @@ import showClass from './directives/class/index'
 // 过滤器
 import * as filters from './filters'
 
-import {createApi, localData, cookie, queryString, tool} from './utils'
+import {createApi, localData, cookieUtil, queryString, tool, authUtil, timeUtil} from './utils'
 
 const components = [
   MyVideo
@@ -55,9 +55,11 @@ export {
   createApi,
   // 工具类
   localData,
-  cookie,
+  authUtil,
+  cookieUtil,
   queryString,
-  tool
+  tool,
+  timeUtil
 }
 
 export default {
