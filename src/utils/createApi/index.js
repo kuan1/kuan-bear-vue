@@ -1,6 +1,6 @@
 import axios from 'axios'
 import errorHandle from './errorHandle'
-import localData from '@/utils/localData'
+import localData from '../../utils/localData'
 import loadingCtrl from './loading'
 
 const {getToken} = localData.auth

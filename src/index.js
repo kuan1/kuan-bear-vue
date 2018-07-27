@@ -1,18 +1,18 @@
 import Waterfall from 'kuan-vue-waterfall'
 
 // 组件
-import Indicator from '@/packages/indicator/index'
-import Toast from '@/packages/toast/index'
-import MyVideo from '@/packages/myVideo/index'
+import Indicator from './packages/indicator/index'
+import Toast from './packages/toast/index'
+import MyVideo from './packages/myVideo/index'
 
 // 自定义指令
-import copy from '@/directives/copy/index'
-import showClass from '@/directives/class/index'
+import copy from './directives/copy/index'
+import showClass from './directives/class/index'
 
 // 过滤器
-import * as filters from '@/filters'
+import * as filters from './filters'
 
-import {createApi, localData, cookie, queryString, tool} from '@/utils'
+import {createApi, localData, cookie, queryString, tool} from './utils'
 
 const components = [
   MyVideo

@@ -1,4 +1,4 @@
-import toast from '@/packages/toast'
+import toast from '../../packages/toast'
 
 function getMessage(error) {
   const message = {

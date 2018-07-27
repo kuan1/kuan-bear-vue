@@ -1,4 +1,4 @@
-import Indicator from '@/packages/indicator'
+import Indicator from '../../packages/indicator'
 
 /**
  *  loading控制
