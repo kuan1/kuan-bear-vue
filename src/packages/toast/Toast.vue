@@ -68,7 +68,7 @@
     color: #fff;
     box-sizing: border-box;
     text-align: center;
-    z-index: 1000;
+    z-index: 8001;
     transition: opacity .3s linear;
     &.is-placetop {
       top: 50px;

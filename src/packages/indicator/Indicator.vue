@@ -41,7 +41,7 @@
       color: white;
       box-sizing: border-box;
       text-align: center;
-      z-index: 3000;
+      z-index: 8000;
     }
     .mint-indicator-text {
       display: block;
