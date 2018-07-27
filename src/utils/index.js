@@ -2,11 +2,12 @@
 import * as tool from './tool'
 import * as queryString from './queryString'
 import * as timeUtils from './timeUtils'
-import * as cookie from './cookie'
+import * as cookie from './cookieUtils'
 import localData from './localData'
 import copy from './copy'
 // import jsonToExcel from './jsonToExcel'
-import {createRequest, default as request} from './request'
+import createApi from './createApi'
+import request from './request'
 import wx from './wx'
 
 export {
@@ -16,7 +17,7 @@ export {
   cookie,
   timeUtils,
   copy,
-  createRequest,
+  createApi,
   request,
   wx
   // jsonToExcel

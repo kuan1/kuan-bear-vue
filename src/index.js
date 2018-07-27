@@ -12,7 +12,7 @@ import showClass from '@/directives/class/index'
 // 过滤器
 import * as filters from '@/filters'
 
-import {createRequest} from '@/utils'
+import {createApi, localData, cookie, queryString, tool} from '@/utils'
 
 const components = [
   MyVideo
@@ -43,6 +43,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export {
+  // 组件
   Waterfall,
   Indicator,
   Toast,
@@ -50,7 +51,13 @@ export {
   // 自定义指令
   copy,
   showClass,
-  createRequest
+  // 请求
+  createApi,
+  // 工具类
+  localData,
+  cookie,
+  queryString,
+  tool
 }
 
 export default {
