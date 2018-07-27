@@ -1,7 +1,7 @@
 {
   "name": "kuan-bear-vue",
   "version": "1.0.0",
-  "description": "公司vue项目整理",
+  "description": "公司vue项目，个人习惯整理",
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config build/webpack.dev.conf.js",
