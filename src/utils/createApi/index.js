@@ -14,14 +14,16 @@ export default function(options = {}) {
       // 'X-Halo-App': 'test'
     },
     customError = () => {
-    }
+    },
+    withCredentials = false
   } = options
 
   // axios 实例
   const service = axios.create({
     baseURL,
     timeout, // 超时
-    headers
+    headers,
+    withCredentials
   })
 
   // request interceptor
@@ -56,6 +58,7 @@ export default function(options = {}) {
       if (!data.success && !data.iRet) {
         const error = new Error(data.info || data.error)
         errorHandle(error, customError)
+        throw error
       }
       return response.data
     },
