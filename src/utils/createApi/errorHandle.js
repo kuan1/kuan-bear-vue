@@ -5,7 +5,7 @@ function getMessage(error) {
     400: '请求错误',
     401: '未授权，请登录',
     403: '拒绝访问',
-    404: '请求地址出错: ${err.response.config.url}',
+    404: `请求地址出错: ${error.response ? error.response.config.url : ''}`,
     408: '请求超时',
     500: '服务器内部错误',
     501: '服务端未实现',
