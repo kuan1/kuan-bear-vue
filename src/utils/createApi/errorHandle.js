@@ -16,7 +16,7 @@ function getMessage(error) {
   }
   const {response = {}} = error
   const {data = {}} = response
-  return data.info || data.error || message[response.status] || error.message || '发生未知错误'
+  return data.info || message[response.status] || error.message || '发生未知错误'
 }
 
 // 处理错误

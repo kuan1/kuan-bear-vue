@@ -30,6 +30,7 @@
     },
     methods: {
       test() {
+        console.log(1234)
         this.$http({
           url: 'http://localhost:8002/api/test'
         })
