@@ -12,8 +12,9 @@
       <button v-copy="value">点击复制</button>
     </p>
 
-
     <my-code></my-code>
+
+    <circle-bar></circle-bar>
 
     <!--<div style="width: 500px; height: 300px;">-->
       <!--<my-video autoplay src="https://www.w3cschool.cn/statics/demosource/mov_bbb.mp4"></my-video>-->

@@ -5,6 +5,7 @@ import Indicator from './packages/indicator/index'
 import Toast from './packages/toast/index'
 import MyVideo from './packages/myVideo/index'
 import MyCode from './packages/myCode'
+import circleBar from './packages/circleBar'
 
 // 自定义指令
 import copy from './directives/copy/index'
@@ -14,11 +15,12 @@ import focus from './directives/focus'
 // 过滤器
 import * as filters from './filters'
 
-import {createApi, localData, cookieUtil, queryString, tool, authUtil, timeUtil} from './utils'
+import {createApi, localData, cookieUtil, queryString, tool, authUtil, timeUtil, styleUtil} from './utils'
 
 const components = [
   MyVideo,
-  MyCode
+  MyCode,
+  circleBar
 ]
 
 // 全局注册
@@ -53,6 +55,7 @@ export {
   Toast,
   MyVideo,
   MyCode,
+  circleBar,
   // 自定义指令
   copy,
   showClass,
@@ -64,7 +67,8 @@ export {
   cookieUtil,
   queryString,
   tool,
-  timeUtil
+  timeUtil,
+  styleUtil
 }
 
 export default {
