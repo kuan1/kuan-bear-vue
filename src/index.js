@@ -5,7 +5,8 @@ import Indicator from './packages/indicator/index'
 import Toast from './packages/toast/index'
 import MyVideo from './packages/myVideo/index'
 import MyCode from './packages/myCode'
-import circleBar from './packages/circleBar'
+import CircleBar from './packages/circleBar'
+import Carousel from './packages/carousel'
 
 // 自定义指令
 import copy from './directives/copy/index'
@@ -20,7 +21,7 @@ import {createApi, localData, cookieUtil, queryString, tool, authUtil, timeUtil,
 const components = [
   MyVideo,
   MyCode,
-  circleBar
+  CircleBar
 ]
 
 // 全局注册
@@ -30,6 +31,7 @@ const install = (Vue) => {
     Vue.component(component.name, component)
   })
   Vue.use(Waterfall)
+  Vue.use(Carousel)
 
   // 自定义过滤器
   Vue.filter(filters)
@@ -55,7 +57,8 @@ export {
   Toast,
   MyVideo,
   MyCode,
-  circleBar,
+  CircleBar,
+  Carousel,
   // 自定义指令
   copy,
   showClass,
