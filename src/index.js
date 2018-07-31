@@ -7,6 +7,7 @@ import MyVideo from './packages/myVideo/index'
 import MyCode from './packages/myCode'
 import CircleBar from './packages/circleBar'
 import Carousel from './packages/carousel'
+import Danmaku from './packages/danmaku'
 
 // 自定义指令
 import copy from './directives/copy/index'
@@ -32,6 +33,7 @@ const install = (Vue) => {
   })
   Vue.use(Waterfall)
   Vue.use(Carousel)
+  Vue.use(Danmaku)
 
   // 自定义过滤器
   Vue.filter(filters)

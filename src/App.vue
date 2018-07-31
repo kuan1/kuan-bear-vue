@@ -1,17 +1,20 @@
 <template>
   <div>
     <!--<test1></test1>-->
-    <test-carousel></test-carousel>
+    <!--<test-carousel></test-carousel>-->
+    <test-danmaku></test-danmaku>
   </div>
 </template>
 
 <script>
   import Test1 from './test/test1'
   import TestCarousel from './test/TestCrousel'
+  import TestDanmaku from './test/TestDanmaku'
   export default {
     components: {
       Test1,
-      TestCarousel
+      TestCarousel,
+      TestDanmaku
     }
   }
 </script>
