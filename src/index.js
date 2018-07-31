@@ -8,6 +8,7 @@ import MyVideo from './packages/myVideo/index'
 // 自定义指令
 import copy from './directives/copy/index'
 import showClass from './directives/class/index'
+import focus from './directives/focus'
 
 // 过滤器
 import * as filters from './filters'
@@ -32,6 +33,7 @@ const install = (Vue) => {
   // 自定义指令
   Vue.use(copy)
   Vue.use(showClass)
+  Vue.use(focus)
 
   // utils
   Vue.prototype.$indicator = Indicator
