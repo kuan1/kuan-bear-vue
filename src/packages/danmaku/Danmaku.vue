@@ -30,7 +30,7 @@
     },
     watch: {
       data() {
-        this.initDanmaku()
+        this.$nextTick(this.initDanmaku)
       }
     },
     methods: {
@@ -116,5 +116,6 @@
     width: 100%;
     position: relative;
     height: 200px;
+    overflow-x: hidden;
   }
 </style>
