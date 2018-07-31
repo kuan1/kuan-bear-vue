@@ -4,6 +4,7 @@ import Waterfall from 'kuan-vue-waterfall'
 import Indicator from './packages/indicator/index'
 import Toast from './packages/toast/index'
 import MyVideo from './packages/myVideo/index'
+import MyCode from './packages/myCode'
 
 // 自定义指令
 import copy from './directives/copy/index'
@@ -16,7 +17,8 @@ import * as filters from './filters'
 import {createApi, localData, cookieUtil, queryString, tool, authUtil, timeUtil} from './utils'
 
 const components = [
-  MyVideo
+  MyVideo,
+  MyCode
 ]
 
 // 全局注册
@@ -50,6 +52,7 @@ export {
   Indicator,
   Toast,
   MyVideo,
+  MyCode,
   // 自定义指令
   copy,
   showClass,

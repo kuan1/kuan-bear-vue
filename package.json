@@ -64,6 +64,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "kuan-vue-waterfall": "^1.0.5",
+    "qrcode": "^1.2.0",
     "vue": "^2.5.16"
   }
 }
