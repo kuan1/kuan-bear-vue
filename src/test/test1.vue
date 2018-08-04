@@ -14,7 +14,7 @@
 
     <my-code></my-code>
 
-    <circle-bar size="200"></circle-bar>
+    <circle-bar :percent="80" size="200"></circle-bar>
 
     <!--<div style="width: 500px; height: 300px;">-->
     <!--<my-video autoplay src="https://www.w3cschool.cn/statics/demosource/mov_bbb.mp4"></my-video>-->

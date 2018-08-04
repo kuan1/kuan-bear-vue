@@ -2,14 +2,8 @@
   <div>
     <h2>测试轮播图片</h2>
     <div class="test">
-      <carousel
-        width="300"
-        height="300"
-      >
-        <carousel-item
-          v-for="(item, i) in images" :key="i"
-          :order="i"
-        >
+      <carousel height="200">
+        <carousel-item v-for="(item, i) in images" :key="i">
           <img :src="item" />
         </carousel-item>
       </carousel>

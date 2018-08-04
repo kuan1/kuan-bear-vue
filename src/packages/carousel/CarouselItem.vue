@@ -1,11 +1,19 @@
 <template>
-  <div class="carousel-item">
+  <div :style="{height, width}" class="carousel-item">
     <slot>默认内容</slot>
   </div>
 </template>
 
 <script>
   export default {
+    computed: {
+      height() {
+        return `${this.$parent.h}px`
+      },
+      width() {
+        return `${this.$parent.w}px`
+      }
+    }
   }
 </script>
 
