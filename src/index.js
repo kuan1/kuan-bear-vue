@@ -1,6 +1,7 @@
 import Waterfall from 'kuan-vue-waterfall'
 import utils from 'kuan-utils'
 import md5 from 'blueimp-md5'
+import * as authUtil from './utils/auth'
 
 // 组件
 import Indicator from './packages/indicator/index'
@@ -71,6 +72,7 @@ export {
   // 工具类
   createApi, // http封装
   wx, // 微信 todo
+  authUtil,
   utils, // kuan-utils工具类
   md5 // md5加密
 }
