@@ -14,7 +14,7 @@
         <th>md5文件</th>
         <th>文件大小</th>
         <th>上传</th>
-        <th>操作</th>
+        <th>状态</th>
       </tr>
       <tr v-for="(item) in files" :key="item.file.name">
         <td>{{item.file.name}}</td>
@@ -177,6 +177,9 @@
     align-items: center;
     background: #fcfcfc;
     border-radius: 15px;
+    &:hover {
+      border-color: #2989d8;
+    }
   }
 
   .file-input {
