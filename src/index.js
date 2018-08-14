@@ -1,5 +1,5 @@
 import Waterfall from 'kuan-vue-waterfall'
-import utils from 'kuan-utils'
+import * as utils from 'kuan-utils'
 import md5 from 'blueimp-md5'
 import * as authUtil from './utils/auth'
 

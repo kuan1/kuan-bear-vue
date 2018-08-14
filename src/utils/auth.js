@@ -1,7 +1,5 @@
 import {localData} from 'kuan-utils'
 
-const {getLocalData, setLocalData} = localData
-
 const KEY = process.env.name || 'kuan-bear-vue'
 const maxAge = 60 * 24
 
@@ -12,12 +10,12 @@ const maxAge = 60 * 24
 
 // 获取用户信息
 export function getUser() {
-  return getLocalData(KEY)
+  return localData.get(KEY)
 }
 
 // 储存用户信息
 export function saveUser(userInfo) {
-  setLocalData(KEY, userInfo, maxAge)
+  localData.set(KEY, userInfo, maxAge)
 }
 
 // 获取token
