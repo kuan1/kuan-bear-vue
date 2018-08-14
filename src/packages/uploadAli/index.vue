@@ -4,7 +4,6 @@
 
     <div class="upload-panel">
       <p>将文件拖到此处，或 <span class="color-main">点击上传</span></p>
-      <!--<div class="plus"></div>-->
       <input :multiple="multiple" @change="changFile" class="file-input" ref="input" type="file">
     </div>
 
@@ -190,32 +189,6 @@
     height: 100%;
     opacity: 0;
   }
-
-  /*.plus {*/
-    /*width: 20%;*/
-    /*height: 20%;*/
-    /*align-items: center;*/
-    /*position: absolute;*/
-    /*left: 0;*/
-    /*top: 0;*/
-    /*right: 0;*/
-    /*bottom: 0;*/
-    /*margin: auto;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
-    /*justify-content: center;*/
-    /*&:after, &:before {*/
-      /*content: '';*/
-      /*display: block;*/
-      /*width: 100%;*/
-      /*max-width: 200px;*/
-      /*height: 1px;*/
-      /*background: #ccc;*/
-    /*}*/
-    /*&:before {*/
-      /*transform: rotate(90deg);*/
-    /*}*/
-  /*}*/
 
   .btn {
     display: inline-block;
