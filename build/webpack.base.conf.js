@@ -10,8 +10,6 @@ function resolve(dir) {
 
 const isDev = process.env.NODE_ENV === 'development';
 
-console.log(process.env.npm_package_name)
-
 module.exports = {
   module: {
     rules: [

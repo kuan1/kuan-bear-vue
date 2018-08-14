@@ -1,6 +1,8 @@
-import {getLocalData, setLocalData} from './index'
+import {localData} from 'kuan-utils'
 
-const KEY = process.env.name || 'bear-vue'
+const {getLocalData, setLocalData} = localData
+
+const KEY = process.env.name || 'kuan-bear-vue'
 const maxAge = 60 * 24
 
 // const localData = {

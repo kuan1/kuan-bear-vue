@@ -1,7 +1,7 @@
 import axios from 'axios'
 import errorHandle from './errorHandle'
-import {getToken} from '../../utils/localData/auth'
 import loadingCtrl from './loading'
+import {getToken} from '../auth'
 
 // config.loading: 控制loading；config.alert: 控制播报
 

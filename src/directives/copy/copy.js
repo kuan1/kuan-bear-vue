@@ -1,4 +1,4 @@
-import copy from '../../utils/copy'
+import {copy} from 'kuan-utils'
 
 export default {
   bind(el, binding) {

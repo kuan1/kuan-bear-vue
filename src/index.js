@@ -1,4 +1,6 @@
 import Waterfall from 'kuan-vue-waterfall'
+import utils from 'kuan-utils'
+import md5 from 'blueimp-md5'
 
 // 组件
 import Indicator from './packages/indicator/index'
@@ -17,7 +19,7 @@ import focus from './directives/focus'
 // 过滤器
 import * as filters from './filters'
 
-import {createApi, localData, cookieUtil, queryString, tool, authUtil, timeUtil, styleUtil} from './utils'
+import {createApi, wx} from './utils'
 
 const components = [
   MyVideo,
@@ -61,19 +63,16 @@ export {
   MyCode,
   CircleBar,
   Carousel,
+
   // 自定义指令
   copy,
   showClass,
-  // 请求
-  createApi,
+
   // 工具类
-  localData,
-  authUtil,
-  cookieUtil,
-  queryString,
-  tool,
-  timeUtil,
-  styleUtil
+  createApi, // http封装
+  wx, // 微信 todo
+  utils, // kuan-utils工具类
+  md5 // md5加密
 }
 
 export default {

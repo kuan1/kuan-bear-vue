@@ -1,5 +1,5 @@
 import { loadWechatJSSDK, isWechat, getWechatConfig } from './tools';
-import localData from '../localData/index';
+import {localData} from 'kuan-utils';
 
 function wxGetLocation() {
   return new Promise(async (resolve, reject) => {
