@@ -1,4 +1,3 @@
-import Waterfall from 'kuan-vue-waterfall'
 import * as utils from 'kuan-utils'
 import md5 from 'blueimp-md5'
 import * as authUtil from './utils/auth'
@@ -34,7 +33,6 @@ const install = (Vue) => {
   components.map(component => {
     Vue.component(component.name, component)
   })
-  Vue.use(Waterfall)
   Vue.use(Carousel)
   Vue.use(Danmaku)
 
@@ -57,7 +55,6 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export {
   // 组件
-  Waterfall,
   Indicator,
   Toast,
   MyVideo,
