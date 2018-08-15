@@ -16,6 +16,9 @@
     },
     methods: {
     },
+    mounted() {
+      this.$toast('1234')
+    },
     components: {
       TestUploadAli
     }

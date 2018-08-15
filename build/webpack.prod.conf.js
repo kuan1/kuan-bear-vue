@@ -7,7 +7,7 @@ const config = merge(base, {
   context: path.resolve(__dirname, '..'),
   output: {
     path: path.resolve(__dirname, '..', 'lib'),
-    filename: 'kuan-bear-vue.min.js',
+    filename: 'kuan-bear-vue.js',
     library: 'kuanBearVue',
     libraryTarget: 'umd'
     // libraryExport: 'default'
