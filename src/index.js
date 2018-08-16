@@ -37,7 +37,9 @@ const install = (Vue) => {
   Vue.use(Danmaku)
 
   // 自定义过滤器
-  Vue.filter(filters)
+  Object.keys(filters).forEach(key => {
+    Vue.filter(key, filters[key])
+  })
 
   // 自定义指令
   Vue.use(copy)
