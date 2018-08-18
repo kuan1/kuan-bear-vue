@@ -1,6 +1,6 @@
 import {localData} from 'kuan-utils'
 
-const KEY = process.env.name || 'kuan-bear-vue'
+const KEY = `${process.env.name || process.env.VUE_APP_TITLE || 'kuan-bear-vue'}_authorization`
 const maxAge = 60 * 24
 
 // const localData = {
