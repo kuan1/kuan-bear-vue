@@ -4,8 +4,8 @@ import Toast from './packages/toast/index'
 import MyVideo from './packages/myVideo/index'
 import MyCode from './packages/myCode'
 import CircleBar from './packages/circleBar'
-import Carousel from './packages/carousel'
 import Danmaku from './packages/danmaku'
+import HeadRoom from './packages/headRoom'
 
 // 自定义指令
 import directives from './directives'
@@ -22,8 +22,8 @@ export {
   MyVideo,
   MyCode,
   CircleBar,
-  Carousel,
   Danmaku,
+  HeadRoom,
 
   // 自定义指令
   directives,

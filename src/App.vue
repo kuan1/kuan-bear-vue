@@ -1,12 +1,13 @@
 <template>
   <div>
-    <h2>kuan-bear-vue</h2>
-    <h3>{{money | formatCurrency}}</h3>
-    <el-button type="primary" @click="test">测试</el-button>
+    <!--<h2>kuan-bear-vue</h2>-->
+    <head-room></head-room>
   </div>
 </template>
 
 <script>
+  import HeadRoom from './packages/headRoom/Demo'
+
   export default {
     data() {
       return {
@@ -26,6 +27,7 @@
     mounted() {
     },
     components: {
+      HeadRoom
     }
   }
 </script>
