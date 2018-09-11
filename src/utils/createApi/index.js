@@ -1,72 +1,34 @@
-import axios from 'axios'
-import errorHandle from './errorHandle'
+import {createApi} from 'kuan-utils'
+import toast from '../../packages/toast'
 import loadingCtrl from './loading'
-import {getToken} from '../auth'
 
-// config.loading: 控制loading；config.alert: 控制播报
-
-export default function(options = {}) {
-  // 默认参数
-  const {
-    timeout = 3000,
-    baseURL,
-    headers = {
-      // 'X-Halo-App': 'test'
+export default (config) => {
+  const defaultConfig = {
+    options: { // 默认配置
+      timeout: 30000,
+      headers: {}, // 默认headers
+      handleError(status) { // 自定义错误处理
+        if (status) console.log('错误状态')
+      },
     },
-    customError = () => {
-    },
-    withCredentials = false
-  } = options
+    Alert: toast, // 错误提示
+    getHeaders() {
+    } // 可以动态设置的headers
+  }
 
-  // axios 实例
-  const service = axios.create({
-    baseURL,
-    timeout, // 超时
-    headers,
-    withCredentials
-  })
+  // axios 对象
+  const service = createApi({...defaultConfig, ...config})
 
-  // request interceptor
-  service.interceptors.request.use(
-    config => {
-      // 携带token
-      const token = getToken()
-      if (token) {
-        config.headers['Authorization'] = `Bearer ${token}` // token
-      }
-      //  显示loading
-      if (config.loading !== false) {
-        loadingCtrl.show()
-      }
-      // 自定义错误处理
-      return config
-    },
-    error => {
-      console.error(error) // for debug
-      Promise.reject(error)
+  // 包装request
+  return async (options = {}, {loading = true} = {}) => {
+    if (loading) loadingCtrl.show()
+    try {
+      const {data} = await service(options)
+      if (loading) loadingCtrl.hide()
+      return data
+    } catch (e) {
+      if (loading) loadingCtrl.hide()
+      return Promise.reject(e)
     }
-  )
-
-  // respone interceptor
-  service.interceptors.response.use(
-    response => {
-      // 此处可以根据状态吗可以做一些逻辑处理
-      const {data, config = {}} = response
-
-      if (config.loading !== false) loadingCtrl.hide() // 关闭loading
-
-      if (!data.success && !data.iRet) {
-        const error = new Error(data.info || data.error)
-        errorHandle(error, customError)
-        throw error
-      }
-      return response.data
-    },
-    error => {
-      loadingCtrl.hide() // 隐藏loading
-      errorHandle(error, customError)
-      return Promise.reject(error)
-    }
-  )
-  return service
+  }
 }

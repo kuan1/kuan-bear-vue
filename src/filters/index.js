@@ -17,6 +17,6 @@ export function timeAgo(time) {
 }
 
 // 格式化货币
-export function formarCurrency(num) {
-  return (+num || 0).toString().replace(/^-?\d+/g, m => m.replace(/(?=(?!\b)(\d{3})+$)/g, ','))
+export function formatCurrency(num) {
+  return (+num || 0).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 }

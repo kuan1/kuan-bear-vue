@@ -1,25 +1,31 @@
 <template>
   <div>
-    <!--<h1>测试</h1>-->
-    <test-upload-ali></test-upload-ali>
+    <h2>kuan-bear-vue</h2>
+    <h3>{{money | formatCurrency}}</h3>
+    <el-button type="primary" @click="test">测试</el-button>
   </div>
 </template>
 
 <script>
-  import TestUploadAli from './test/TestUploadAli'
-
   export default {
     data() {
       return {
-        visible: false
+        visible: false,
+        money: 1345666
       }
     },
     methods: {
+      test() {
+        this.$http({
+          url: 'https://api.luzhongkuan.cn/api/location'
+        }).then(res => {
+          console.log(111, res)
+        })
+      }
     },
     mounted() {
     },
     components: {
-      TestUploadAli
     }
   }
 </script>

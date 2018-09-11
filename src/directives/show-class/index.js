@@ -1,7 +1,7 @@
-import showClass from './class'
+import showClass from './show-class'
 
 const install = (Vue) => {
-  Vue.directive('class', showClass)
+  Vue.directive('show-class', showClass)
 }
 
 if (typeof window !== 'undefined' && window.Vue) {

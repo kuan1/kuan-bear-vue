@@ -8,8 +8,6 @@ function resolve(dir) {
   return path.join(__dirname, '../', dir);
 }
 
-const isDev = process.env.NODE_ENV === 'development';
-
 module.exports = {
   module: {
     rules: [
@@ -38,21 +36,25 @@ module.exports = {
         },
       },
       {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: 'fonts/[name].[ext]?[hash]',
+        }
+      },
+      {
         test: /\.(scss|css)$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
   },
+  externals: {},
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src'),
+      'vue$': 'vue/dist/vue.esm.js'
     },
-  },
-  performance: {
-    maxEntrypointSize: 300000,
-    hints: isDev ? false : 'warning',
   },
   plugins: [
     // make sure to include the plugin!

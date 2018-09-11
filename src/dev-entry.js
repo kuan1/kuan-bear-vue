@@ -1,12 +1,15 @@
 import Vue from 'vue'
+import ElementUI from 'element-ui'
+
+import BearVue from './index'
 
 import App from './App'
 
-import BearVue from './index'
-import request from './utils/request'
+import request from './utils/createApi/demo'
 
 Vue.prototype.$http = request
 
+Vue.use(ElementUI)
 Vue.use(BearVue)
 
 new Vue({
