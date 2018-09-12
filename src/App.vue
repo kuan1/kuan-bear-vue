@@ -1,13 +1,11 @@
 <template>
   <div>
-    <!--<h2>kuan-bear-vue</h2>-->
-    <head-room></head-room>
+    <test></test>
   </div>
 </template>
 
 <script>
-  import HeadRoom from './packages/headRoom/Demo'
-
+  import Test from './packages/BatchSwiper/Demo'
   export default {
     data() {
       return {
@@ -17,17 +15,12 @@
     },
     methods: {
       test() {
-        this.$http({
-          url: 'https://api.luzhongkuan.cn/api/location'
-        }).then(res => {
-          console.log(111, res)
-        })
       }
     },
     mounted() {
     },
     components: {
-      HeadRoom
+      Test
     }
   }
 </script>

@@ -13,7 +13,7 @@ import directives from './directives'
 // 过滤器
 import * as filters from './filters'
 
-import {createApi, wx} from './utils'
+import {createApi} from './utils'
 
 export {
   // 组件
@@ -33,7 +33,6 @@ export {
 
   // 工具类
   createApi, // http封装
-  wx // 微信 todo
 }
 
 export default {
