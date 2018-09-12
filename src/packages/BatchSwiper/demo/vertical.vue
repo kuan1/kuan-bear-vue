@@ -6,10 +6,10 @@
 
 <script>
   // 竖直屏幕
-  import BatchSwiper from './index'
-  import data from './data'
+  import BatchSwiper from '../index'
+  import data from './vertical.js'
 
-  import {flattenMyTree} from './_utils'
+  import {flattenMyTree} from '../_utils'
 
   const base_url = 'http://7s1r2o.com1.z0.glb.clouddn.com/'
   const size = '!w1080x1920'

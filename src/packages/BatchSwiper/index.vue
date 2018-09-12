@@ -95,24 +95,18 @@
       },
       getStyle(width, height) {
         const targetHeight = width * this.ratio;
-        return targetHeight < height ? { width: width, height: targetHeight } : { width: height * 1206 / 750, height: height };
+        // 横屏，设置长边作为宽
+        return (targetHeight < height) ? { width: width, height: targetHeight } : { width: height * this.ratio, height: height };
       },
       setStyle() {
-        let winWidth = document.documentElement.clientWidth || document.body.clientWidth;
-        let winHeight = document.documentElement.clientHeight || document.body.clientHeight;
-
-        // 设置长边作为宽
-
-        if (winHeight > winWidth && this.horizontal) {
-          [winWidth, winHeight] = [winHeight, winWidth]
-        }
+        const winWidth = document.documentElement.clientWidth || document.body.clientWidth;
+        const winHeight = document.documentElement.clientHeight || document.body.clientHeight;
 
         const {width, height} = this.getStyle(winWidth - 10, winHeight - 10);
         this.wrapperStyle = {
           width: `${width}px`,
           height: `${height}px`
         }
-        console.log(11, this.wrapperStyle)
       }
     },
     mounted() {
@@ -156,6 +150,9 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
+      &.horizontal {
+        transform: rotate(90deg);
+      }
     }
   }
 </style>
