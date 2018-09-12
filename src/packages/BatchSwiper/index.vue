@@ -5,7 +5,7 @@
         class="full-content"
         :style="item.background ? {backgroundImage: 'url(' + item.background + ')'} : {}"
       >
-        <div class="full-content" :style="wrapperStyle">
+        <div class="full-wrapper" :style="wrapperStyle">
           <component
             :isShow="pageIndex === key"
             v-for="(it, i) in item.layers" :is="it.is || 'material'"
@@ -150,6 +150,12 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+    .full-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
     }
   }
 </style>
