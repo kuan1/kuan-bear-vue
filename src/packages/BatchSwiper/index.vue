@@ -29,7 +29,7 @@
 
   export default {
     props: {
-      horizontal: {
+      horizontal: { // 是否是横屏显示的
         type: Boolean,
         default: false
       },
