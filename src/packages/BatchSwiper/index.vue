@@ -96,7 +96,7 @@
       getStyle(width, height) {
         const targetHeight = width * this.ratio;
         // 横屏，设置长边作为宽
-        return (targetHeight < height) ? { width: width, height: targetHeight } : { width: height * this.ratio, height: height };
+        return (targetHeight < height) ? { width: width, height: targetHeight } : { width: height / this.ratio, height: height };
       },
       setStyle() {
         const winWidth = document.documentElement.clientWidth || document.body.clientWidth;
