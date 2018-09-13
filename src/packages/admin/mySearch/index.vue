@@ -46,11 +46,6 @@
       return {
       }
     },
-    watch: {
-      payload(e) {
-        // console.log(e)
-      }
-    },
     methods: {
       changeInput(e, key) {
         const {value} = e.target
