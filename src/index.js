@@ -6,6 +6,12 @@ import MyCode from './packages/myCode'
 import CircleBar from './packages/circleBar'
 import Danmaku from './packages/danmaku'
 import HeadRoom from './packages/headRoom'
+// admin组件
+import MyImage from './packages/admin/myImage'
+import MyForm from './packages/admin/myForm'
+import MyModal from './packages/admin/myModal' // 自动验证
+import MyPagination from './packages/admin/myPagination'
+import MySearch from './packages/admin/mySearch'
 
 // 自定义指令
 import directives from './directives'
@@ -24,6 +30,12 @@ export {
   CircleBar,
   Danmaku,
   HeadRoom,
+  // admin 组件
+  MyImage,
+  MyForm,
+  MyModal,
+  MyPagination,
+  MySearch,
 
   // 自定义指令
   directives,

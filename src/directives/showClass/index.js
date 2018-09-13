@@ -1,4 +1,4 @@
-import showClass from './show-class'
+import showClass from './showClass'
 
 const install = (Vue) => {
   Vue.directive('show-class', showClass)

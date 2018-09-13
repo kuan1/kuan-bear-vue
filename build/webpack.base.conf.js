@@ -49,7 +49,9 @@ module.exports = {
       },
     ],
   },
-  externals: {},
+  externals: {
+    // 'element-ui': "ELEMENT"
+  },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
     alias: {

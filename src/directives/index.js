@@ -1,10 +1,10 @@
 import copy from './copy'
-import showLass from './show-class'
+import showClass from './showClass'
 import focus from './focus'
 
 const install = (Vue) => {
   Vue.use(copy)
-  Vue.use(showLass)
+  Vue.use(showClass)
   Vue.use(focus)
 }
 
