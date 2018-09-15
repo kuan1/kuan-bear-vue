@@ -1,12 +1,15 @@
 const path = require('path');
 const webpack = require('webpack')
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const vueLoaderConfig = require('./vue-loader.conf')
 
 function resolve(dir) {
   return path.join(__dirname, '../', dir);
 }
+
+const isDev = process.env.NODE_ENV === 'development'
 
 module.exports = {
   module: {
@@ -45,12 +48,9 @@ module.exports = {
       },
       {
         test: /\.(scss|css)$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [isDev ? 'style-loader' : MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
     ],
-  },
-  externals: {
-    // 'element-ui': "ELEMENT"
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],

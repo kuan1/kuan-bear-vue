@@ -2,7 +2,7 @@
   "name": "kuan-bear-vue",
   "version": "1.1.0",
   "description": "公司vue项目，个人习惯整理",
-  "main": "index.js",
+  "main": "lib/kuan-bear-vue",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --config build/webpack.dev.conf.js",
     "build": "cross-env NODE_ENV=production webpack --mode production --progress --config build/webpack.prod.conf.js",
@@ -44,7 +44,9 @@
     "file-loader": "^2.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.4.2",
     "node-sass": "^4.9.3",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
     "portfinder": "^1.0.17",
     "postcss-import": "^12.0.0",
     "postcss-loader": "^3.0.0",
@@ -57,7 +59,8 @@
     "webpack": "^4.17.0",
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5",
-    "webpack-merge": "^4.1.4"
+    "webpack-merge": "^4.1.4",
+    "webpack-node-externals": "^1.7.2"
   },
   "dependencies": {
     "axios": "^0.18.0",
