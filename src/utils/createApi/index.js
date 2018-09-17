@@ -7,9 +7,9 @@ export default (config) => {
     options: { // 默认配置
       timeout: 30000,
       headers: {}, // 默认headers
-      handleError(status) { // 自定义错误处理
-        if (status) console.log('错误状态')
-      },
+    },
+    handleError(status) { // 自定义错误处理
+      if (status) console.log('错误状态')
     },
     Alert: toast, // 错误提示
     getHeaders() {
