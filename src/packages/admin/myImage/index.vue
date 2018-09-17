@@ -1,6 +1,6 @@
 <template>
-  <div :style="style" class="pre-box">
-    <img :style="style" class="small-image" @click="dialogImageUrl = src" :src="src">
+  <div style="width: 70px; height: 70px" class="pre-box">
+    <img style="width: 100%; height: 100%" class="small-image" @click="dialogImageUrl = src" :src="src">
     <el-dialog append-to-body :before-close="onClose" :visible="!!dialogImageUrl">
       <img width="100%" :src="dialogImageUrl">
     </el-dialog>
@@ -12,15 +12,6 @@
       src: {
         type: String,
         default: ''
-      },
-      style: {
-        type: Object,
-        default() {
-          return {
-            width: '70px',
-            height: '70px'
-          }
-        }
       }
     },
     data() {
