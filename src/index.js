@@ -4,7 +4,7 @@ import Toast from './packages/toast/index'
 import MyVideo from './packages/myVideo/index'
 import MyCode from './packages/myCode'
 import CircleBar from './packages/circleBar'
-import Danmaku from './packages/danmaku'
+import Danmaku from './bate/danmaku'
 import HeadRoom from './packages/headRoom'
 // admin组件
 import MyImage from './packages/admin/myImage'
