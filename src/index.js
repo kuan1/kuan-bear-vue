@@ -3,6 +3,10 @@ import Indicator from './packages/indicator/index'
 import Toast from './packages/toast/index'
 import MyCode from './packages/myCode'
 import MyVideo from './packages/myVideo/index'
+import HeadRoom from './packages/headRoom/index'
+
+// admin
+import useAdmin from './packages/admin'
 
 // 自定义指令
 import directives from './directives'
@@ -15,7 +19,10 @@ export {
   Indicator,
   Toast,
   MyCode,
-  MyVideo
+  MyVideo,
+  HeadRoom,
+  // 后台组件
+  useAdmin
 }
 
 export default {

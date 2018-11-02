@@ -7,7 +7,6 @@
     </div>
   </div>
 </template>
-
 <script>
 import { throttle } from 'kuan-utils'
 
@@ -37,7 +36,7 @@ export default {
         this.visible = this.oldScrollTop > scrollTop
 
         this.oldScrollTop = scrollTop
-      }, 16.7)
+      }, 50)
     }
   },
   mounted() {
@@ -62,13 +61,13 @@ export default {
 .room-leave {
   opacity: 1;
   transform: translate3D(0, 0, 0);
-  transition: opacity 0.6s, transform 0.6s;
+  transition: opacity 0.3s, transform 0.3s linear;
 }
 
 .room-enter,
 .room-leave-to {
   opacity: 0.5;
-  transform: translate3D(0, -100%, 0);
-  transition: opacity 0.6s, transform 0.6s;
+  transform: translate3D(0, -150%, 0);
+  transition: opacity 0.3s, transform 0.3s linear;
 }
 </style>
