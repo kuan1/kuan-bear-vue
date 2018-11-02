@@ -8,7 +8,6 @@
 <script>
 // https://www.w3cschool.cn/statics/demosource/mov_bbb.mp4
 export default {
-  name: 'my-video',
   props: {
     src: {
       type: String,
@@ -39,7 +38,7 @@ export default {
   methods: {
     // 切换播放暂停
     playHandler() {
-      const { paused } = this.$refs.video
+      const { paused } = this.$refs.video || {}
       if (!paused) {
         this.pause()
       } else if (paused) {
@@ -85,6 +84,7 @@ export default {
   overflow: hidden;
   width: 100%;
   height: 100%;
+  min-height: 50px;
   // border-radius: 0.2rem;
   background-position: center center;
   background-size: cover;

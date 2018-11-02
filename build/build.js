@@ -7,5 +7,6 @@ const { resolve } = require('./utils')
 buildLib({
   libName: 'kuan-utils',
   distPath: resolve('lib'), // 输入地址 默认： dist
-  htmlTemplate: false
+  htmlTemplate: false,
+  extractCss: false // 抽取css
 })

@@ -1,8 +1,8 @@
 // 组件
 import Indicator from './packages/indicator/index'
 import Toast from './packages/toast/index'
-import MyVideo from './packages/myVideo/index'
 import MyCode from './packages/myCode'
+import MyVideo from './packages/myVideo/index'
 
 // 自定义指令
 import directives from './directives'
@@ -14,14 +14,14 @@ export {
   // 组件
   Indicator,
   Toast,
-  MyVideo,
-  MyCode
+  MyCode,
+  MyVideo
 }
 
 export default {
   install(Vue) {
-    Vue.prototype.$toast = toast
-    Vue.prototype.$toast = Indicator
+    Vue.prototype.$toast = Toast
+    Vue.prototype.$indicator = Indicator
 
     // 自定义指令
     Vue.use(directives)
