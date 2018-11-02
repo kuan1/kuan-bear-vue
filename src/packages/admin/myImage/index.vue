@@ -7,34 +7,34 @@
   </div>
 </template>
 <script>
-  export default {
-    props: {
-      src: {
-        type: String,
-        default: ''
-      }
-    },
-    data() {
-      return {
-        props: this.props,
-        dialogImageUrl: ''
-      }
-    },
-    methods: {
-      onClose() {
-        this.dialogImageUrl = ''
-      }
+export default {
+  props: {
+    src: {
+      type: String,
+      default: ''
+    }
+  },
+  data() {
+    return {
+      props: this.props,
+      dialogImageUrl: ''
+    }
+  },
+  methods: {
+    onClose() {
+      this.dialogImageUrl = ''
     }
   }
+}
 </script>
-<style lang="scss" scoped>
-  .pre-box {
-    width: 100%;
-    display: inline-block;
-  }
+<style lang="less" scoped>
+.pre-box {
+  width: 100%;
+  display: inline-block;
+}
 
-  .small-image {
-    display: block;
-    margin: 0 auto;
-  }
+.small-image {
+  display: block;
+  margin: 0 auto;
+}
 </style>

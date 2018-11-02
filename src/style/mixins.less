@@ -1,0 +1,63 @@
+// 清除浮动
+.clearfix() {
+  &:after {
+    content: '';
+    display: block;
+    visibility: hidden;
+    clear: both;
+  }
+}
+// 单行超出隐藏
+.text-ellipsis(@width: 100px) {
+  width: @width;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+// 多行文本超出隐藏
+.text-ellipsis-mul (@row: 3) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: @row;
+  -webkit-box-orient: vertical;
+}
+// 定位居中
+.center-absolute(@width, @height) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -(@width / 2);
+  margin-top: -(@height / 2);
+  width: @width;
+  height: @height;
+}
+// css3居中
+.center-transform() {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+// flex居中
+.flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+//设置透明度
+.opacity(@val) {
+  filter: alpha(opacity= @val);
+  opacity: @val / 100;
+}
+
+.triangle(@color: black, @width: 3px, @height: 3px) {
+  &:after {
+    content: '';
+    display: block;
+    border-bottom: @width solid @color;
+    border-right: @height solid transparent;
+    border-left: @height solid transparent;
+  }
+}
