@@ -3,9 +3,7 @@
     <head-room>
       <h2>这里是头部🌹</h2>
     </head-room>
-    <h2>测试页面</h2>
-    <button @click="test">点击</button>
-
+    <my-table :data="data" :columns="columns"></my-table>
   </div>
 </template>
 
@@ -18,6 +16,16 @@ export default {
   },
   data() {
     return {
+      data: [
+        { id: 1, name: '哈哈', age: 10 },
+        { id: 1, name: '哈哈1', age: 10 },
+        { id: 1, name: '哈哈2', age: 10 }
+      ],
+      columns: [
+        { prop: 'id', label: 'ID' },
+        { prop: 'name', label: '名字' },
+        { prop: 'age', label: '年龄' }
+      ],
       url: 'http://www.baidu.com'
     }
   },
