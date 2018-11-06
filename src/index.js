@@ -22,7 +22,9 @@ export {
   MyVideo,
   HeadRoom,
   // 后台组件
-  useAdmin
+  useAdmin,
+  filters,
+  directives
 }
 
 export default {
