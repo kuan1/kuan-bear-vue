@@ -4,12 +4,12 @@
     <el-table stripe :data="data">
       <el-table-column v-for="(item) in columns" :key="item.prop" v-bind="item">
         <template slot-scope="{row}">
-          <slot :name="item.custom" v-bind="row">
+          <slot :name="item.prop" v-bind="row">
             <span>{{row[item.prop]}}</span>
           </slot>
         </template>
       </el-table-column>
-      <el-table-column v-if="actions.length" label="操作">
+      <el-table-column v-if="actions.length || action" label="操作">
         <template slot-scope="{row}">
           <el-button v-for="item in actions" :key="item.name" :type="item.type" @click="item.action(row)">{{item.name}}</el-button>
           <slot v-bind="row" name="action"></slot>
@@ -34,6 +34,10 @@ export default {
       defualt() {
         return {}
       }
+    },
+    action: {
+      type: Boolean,
+      default: false
     },
     add: Function,
     edit: Function,
