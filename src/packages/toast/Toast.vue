@@ -8,6 +8,7 @@
 </template>
 
 <script type="text/babel">
+// 来自： mint ui
 export default {
   props: {
     message: String,
