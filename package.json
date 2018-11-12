@@ -25,6 +25,7 @@
     "kuan-pack": "^1.1.1"
   },
   "dependencies": {
+    "@babel/runtime": "^7.1.5",
     "axios": "^0.18.0",
     "element-ui": "^2.4.9",
     "kuan-utils": "^1.1.3",
