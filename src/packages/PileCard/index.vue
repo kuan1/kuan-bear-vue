@@ -2,7 +2,9 @@
   <div class="pile-container">
     <div :style="{width, height}" v-if="data.length" class="card-list">
       <div v-for="(item, index) in data" @touchmove.stop="bindMove" @touchend="moveEnd" @mouseup="moveEnd" @touchstart="moveStart" @mousedown="moveStart" :key="item.name" :style="index === data.length - 1 ? {...style, height} : {height: height}" class="card">
-        <h2>哈哈哈{{item}}</h2>
+        <slot :data="item">
+          <span>{{item}}</span>
+        </slot>
       </div>
     </div>
   </div>
