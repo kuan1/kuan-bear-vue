@@ -1,20 +1,22 @@
 <template>
   <div style="height: 600000vh;">
-    <header-room>
-      <h2>这里是头部</h2>
-    </header-room>
+    <demo />
   </div>
 </template>
 
 <script>
-import HeaderRoom from '../src/packages/HeadRoom'
+import Demo from '../src/packages/PileCard/Demo.vue'
 
 export default {
   components: {
-    HeaderRoom
+    Demo
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+* {
+  margin: 0;
+  padding: 0;
+}
 </style>

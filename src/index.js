@@ -2,6 +2,7 @@
 import QrCode from './packages/QrCode'
 import MyVideo from './packages/MyVideo'
 import HeadRoom from './packages/HeadRoom'
+import PileCard from './packages/PileCard'
 
 // 自定义指令
 import directives from './directives'
@@ -13,7 +14,8 @@ export {
   // 组件
   QrCode,
   MyVideo,
-  HeadRoom
+  HeadRoom,
+  PileCard
 }
 
 export default {
