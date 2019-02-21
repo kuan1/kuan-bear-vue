@@ -1,8 +1,8 @@
 <template>
-  <div class="pile-container">
-    <div :style="{width, height}" v-if="data.length" class="card-list">
-      <div v-for="(item, index) in data" @touchmove.stop="bindMove" @touchend="moveEnd" @mouseup="moveEnd" @touchstart="moveStart" @mousedown="moveStart" :key="item.name" :style="index === data.length - 1 ? {...style, height} : {height: height}" class="card">
-        <slot :data="item">
+  <div :style="{height}" class="pile-container">
+    <div :style="{width}" v-if="data.length" class="card-list">
+      <div v-for="(item, index) in data" @touchmove.stop="bindMove" @touchend="moveEnd" @touchstart="moveStart" @mousedown="moveStart" :key="item.name" :style="index === data.length - 1 ? style : {}" class="card">
+        <slot :item="item">
           <span>{{item}}</span>
         </slot>
       </div>
@@ -26,7 +26,7 @@ export default {
     },
     height: {
       type: String,
-      default: '500px'
+      default: '650px'
     }
   },
   data() {
@@ -38,9 +38,11 @@ export default {
   },
   mounted() {
     document.body.addEventListener('mousemove', this.bindMove)
+    document.body.addEventListener('mouseup', this.moveEnd)
   },
   beforeDestory() {
     document.body.removeEventListener('mousemove', this.bindMove)
+    document.body.removeEventListener('mouseup', this.moveEnd)
   },
   methods: {
     resetData() {
@@ -96,13 +98,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.pile-container {
+  height: 600px;
+  max-height: 85vh;
+  padding-bottom: 30px;
+}
 .card-list {
   width: 350px;
+  height: 100%;
   max-width: 90%;
-  height: 500px;
+  max-height: 75%;
   position: relative;
   z-index: 1000;
-  padding-bottom: 30px;
   margin: 30px auto 0;
 }
 .pile-container {
@@ -117,7 +124,6 @@ export default {
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 255, 1);
   transform-origin: bottom center;
   opacity: 0;
   transition: 0.1s;
@@ -130,12 +136,12 @@ export default {
   &:nth-last-child(2) {
     box-shadow: 0px 10px 30px 0px rgba(170, 143, 113, 0.3);
     opacity: 0.9;
-    transform: scale(0.94) translate(0, 0.26rem);
+    transform: scale(0.94) translate(0, 14px);
   }
   &:nth-last-child(3) {
     box-shadow: 0px 10px 30px 0px rgba(170, 143, 113, 0.3);
     opacity: 0.8;
-    transform: scale(0.88) translate(0, 0.52rem);
+    transform: scale(0.88) translate(0, 26px);
   }
 }
 </style>
