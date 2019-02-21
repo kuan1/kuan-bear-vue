@@ -5,8 +5,8 @@
   "main": "lib/kuan-bear-vue",
   "scripts": {
     "dev": "node build/dev",
-    "build": "node build/build",
-    "build:demo": "node build/buildDemo",
+    "build": "rimraf lib && node build/build",
+    "build:demo": "rimraf demo && node build/buildDemo",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,8 +21,9 @@
   },
   "homepage": "https://github.com/kuan1/kuan-bear-vue#readme",
   "devDependencies": {
-    "kuan-pack-vue": "^2.0.5",
+    "kuan-pack-vue": "^2.0.6",
     "node-sass": "^4.11.0",
+    "rimraf": "^2.6.3",
     "sass-loader": "^7.1.0"
   },
   "dependencies": {

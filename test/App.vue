@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import HeaderRoom from '../src/packages/headRoom'
+import HeaderRoom from '../src/packages/HeadRoom'
 
 export default {
   components: {

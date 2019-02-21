@@ -1,7 +1,7 @@
 // 组件
 import QrCode from './packages/QrCode'
-import MyVideo from './packages/MyVideo/index'
-import HeadRoom from './packages/HeadRoom/index'
+import MyVideo from './packages/MyVideo'
+import HeadRoom from './packages/HeadRoom'
 
 // 自定义指令
 import directives from './directives'
