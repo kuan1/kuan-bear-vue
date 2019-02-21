@@ -19,7 +19,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .container {
   height: 3000px;
   background: #f5f5f5;

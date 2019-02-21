@@ -9,7 +9,7 @@ export default {
   props: {
     url: {
       type: String,
-      default: 'http://www.baidu.com'
+      default: ''
     },
     width: {
       type: [String, Number],
@@ -43,6 +43,7 @@ export default {
   },
   methods: {
     generateCode() {
+      if (!this.url) return
       const { canvas } = this.$refs
       QRcode.toCanvas(canvas, this.url, { width: this.width, height: this.height }, (err) => {
         if (err) {

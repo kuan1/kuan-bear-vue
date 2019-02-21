@@ -68,7 +68,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="scss">
 .search-box {
   display: flex;
   margin-bottom: 5px;

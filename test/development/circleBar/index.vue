@@ -71,7 +71,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 /*支持IE9及以上*/
 .circle-bar {
   width: 1em;

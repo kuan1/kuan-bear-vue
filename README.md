@@ -2,6 +2,8 @@
 
 > 针对幻熊公司项目使用
 
+> 重新整理中...
+
 ## 使用
 
 ```
@@ -12,17 +14,9 @@ import BearVue from 'kuan-bear-vue'
 vue.use(BearVue)
 ```
 
-## 组件
-
-```
-Indicator // loading
-Toast // 提示
-MyCode // 二维码
-MyVideo // 视频
-HeadRoom // 头部
-```
-
 ## 更新
+
+- 2.0
 
 - 1.1.3: 略
 - 1.1.2: 升级 kuan-utils、其他 bug 修改

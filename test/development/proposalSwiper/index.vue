@@ -114,7 +114,7 @@ export default {
 }
 </script>
 
-<style lang="less">
+<style lang="scss">
 .batch-swiper {
   height: 100vh;
   overflow: hidden;

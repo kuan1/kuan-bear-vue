@@ -78,7 +78,7 @@ export default {
 </script>
 
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .video-wrap {
   position: relative;
   overflow: hidden;

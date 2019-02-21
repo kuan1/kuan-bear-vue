@@ -49,7 +49,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .room {
   position: fixed;
   width: 100%;
@@ -60,14 +60,14 @@ export default {
 .room-enter-active,
 .room-leave {
   opacity: 1;
-  transform: translate3D(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   transition: opacity 0.3s, transform 0.3s linear;
 }
 
 .room-enter,
 .room-leave-to {
   opacity: 0.5;
-  transform: translate3D(0, -150%, 0);
+  transform: translate3d(0, -150%, 0);
   transition: opacity 0.3s, transform 0.3s linear;
 }
 </style>
