@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Demo from '../src/packages/PileCard/Demo.vue'
+import Demo from '../src/packages/Debug/index.vue'
 
 export default {
   components: {
