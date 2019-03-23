@@ -1,7 +1,7 @@
 <template>
   <div :style="{height}" class="pile-container">
-    <div :style="{width}" v-if="data.length" class="card-list">
-      <div v-for="(item, index) in data" @touchmove.stop="bindMove" @touchend="moveEnd" @touchstart="moveStart" @mousedown="moveStart" :key="item.name" :style="index === data.length - 1 ? style : {}" class="card">
+    <div :style="{width}" v-if="data.length" class="card-list" :class="{'is-move': startPos}">
+      <div v-for="(item, index) in data" @touchmove.stop="bindMove" @touchend="moveEnd" @touchstart="moveStart" @mousedown="moveStart" :key="item.id || index" :style="index === data.length - 1 ? style : {}" class="card">
         <slot :item="item">
           <span>{{item}}</span>
         </slot>
@@ -26,7 +26,7 @@ export default {
     },
     height: {
       type: String,
-      default: '650px'
+      default: '500px'
     }
   },
   data() {
@@ -88,10 +88,12 @@ export default {
         this.resetData()
       }
       this.startPos = ''
-      this.style = {
-        transform: `translate(0, 0)`,
-        '-webkit-transform': `translate(0, 0)`
-      }
+      this.$nextTick(() => {
+        this.style = {
+          transform: `translate(0, 0)`,
+          '-webkit-transform': `translate(0, 0)`
+        }
+      })
     }
   }
 }
@@ -99,7 +101,7 @@ export default {
 
 <style lang="scss" scoped>
 .pile-container {
-  height: 600px;
+  height: 500px;
   max-height: 85vh;
   padding-bottom: 30px;
 }
@@ -118,6 +120,9 @@ export default {
   display: flex;
   justify-content: center;
 }
+.is-move .card {
+  transition: none;
+}
 .card {
   position: absolute;
   left: 0;
@@ -126,7 +131,7 @@ export default {
   height: 100%;
   transform-origin: bottom center;
   opacity: 0;
-  transition: 0.1s;
+  transition: 0.5s;
   user-select: none;
   cursor: move;
   &:last-child {
