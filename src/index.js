@@ -1,11 +1,11 @@
 // 组件
-import QrCode from './packages/QrCode'
-import MyVideo from './packages/MyVideo'
-import HeadRoom from './packages/HeadRoom'
-import PileCard from './packages/PileCard'
+import QrCode from './QrCode'
+import MyVideo from './MyVideo'
+import HeadRoom from './HeadRoom'
+import PileCard from './PileCard'
 
 // 自定义指令
-import directives from './directives'
+import directives from './utils/directives'
 
 // 过滤器
 import { filters } from 'kuan-utils'

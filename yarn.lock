@@ -3974,6 +3974,11 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.npmjs.org/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
   integrity sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==
 
+kuan-css@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/kuan-css/-/kuan-css-1.0.1.tgz#0bbc38c0b72b2fd81b461de88992fa4a3bf1714b"
+  integrity sha512-o66trQZolUBa8XqqMoy8hiYByPwXWHcMae0AIc84UBLCgmDXdvmsaUjpHnSnQF48oSzTVRHNrqo6aoqqGfi7nw==
+
 kuan-pack-vue@^2.0.6:
   version "2.0.6"
   resolved "https://registry.npmjs.org/kuan-pack-vue/-/kuan-pack-vue-2.0.6.tgz#a528ad0a2cef36322efbf04ecc443cdcf1654cf9"
@@ -7011,6 +7016,11 @@ vue-loader@^15.6.2:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
+
+vue-router@^3.0.2:
+  version "3.0.2"
+  resolved "https://registry.npmjs.org/vue-router/-/vue-router-3.0.2.tgz#dedc67afe6c4e2bc25682c8b1c2a8c0d7c7e56be"
+  integrity sha512-opKtsxjp9eOcFWdp6xLQPLmRGgfM932Tl56U9chYTnoWqKxQ8M20N7AkdEbM5beUh6wICoFGYugAX9vQjyJLFg==
 
 vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   version "4.1.2"
