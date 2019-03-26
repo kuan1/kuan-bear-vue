@@ -8,6 +8,7 @@ const routes = []
 function requireAll(r) {
   return r.keys().map(key => {
     const k = key.replace('./', '').replace('/index.vue', '')
+    console.log(key)
     routes.push({
       path: `/${k}`.toLowerCase(),
       component: r(key).default
@@ -15,7 +16,11 @@ function requireAll(r) {
   })
 }
 
-requireAll(require.context('../src', true, /index\.vue/))
+requireAll(require.context('./view', true, /index\.vue/))
+
+export {
+  routes
+}
 
 const router = new Router({
   mode: 'hash',

@@ -45,7 +45,7 @@ export default {
     generateCode() {
       if (!this.url) return
       const { canvas } = this.$refs
-      QRcode.toCanvas(canvas, this.url, { width: this.width, height: this.height }, (err) => {
+      QRcode.toCanvas(canvas, this.url, { width: this.width, height: this.height, margin: '1' }, (err) => {
         if (err) {
           console.error(err)
         }

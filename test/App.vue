@@ -10,12 +10,12 @@
 </template>
 
 <script>
-import * as BearVue from '../src/index.js'
+import { routes } from './router.js'
 
 export default {
   data() {
     return {
-      routes: Object.keys(BearVue).filter(item => item !== 'default')
+      routes: routes.map(item => item.path.replace('/', ''))
     }
   }
 }

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import room from './index'
+import room from '../../../src/HeadRoom'
 export default {
   components: {
     room
