@@ -1,5 +1,6 @@
 <template>
   <div class="test-container">
+    <h2>vue常用组件整理</h2>
     <ul v-if="$route.fullPath === '/'">
       <li v-for="item in routes" :key="item">
         <router-link :to="{path:`/${item}`}">{{item}}</router-link>

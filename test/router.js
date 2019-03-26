@@ -8,7 +8,6 @@ const routes = []
 function requireAll(r) {
   return r.keys().map(key => {
     const k = key.replace('./', '').replace('/index.vue', '')
-    console.log(key)
     routes.push({
       path: `/${k}`.toLowerCase(),
       component: r(key).default
