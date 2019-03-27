@@ -176,6 +176,9 @@ $main-color: #ff6633;
   }
   td {
     height: 38px;
+    &:hover {
+      background: #fff5f2;
+    }
   }
   .label {
     position: absolute;
