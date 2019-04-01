@@ -13,27 +13,49 @@ export default {
       default: ''
     }
   },
-  mounted() {
-    this.init()
-  },
   watch: {
     html() {
-      this.init()
+      this.$nextTick(() => {
+        this.init()
+      })
     }
+  },
+  mounted() {
+    this.init()
   },
   methods: {
     init() {
       const blocks = this.$refs.code.querySelectorAll('pre code');
-      blocks.forEach((block) => {
+      blocks.forEach((block, num) => {
         hljs.highlightBlock(block)
+        let i = 1
+        const n = (m) => `<em class="line-label">${m > 9 ? m : '0' + m}</em>`
+        block.innerHTML = `<div class="line">${n(i)}${block.innerHTML.replace(/\n/g, function (word) {
+          i += 1
+          return `</div><div class="line">${n(i)}`
+        })}</div>`
       })
     }
   }
 }
 </script>
 
+<style lang="scss">
+.hljs {
+  .line {
+    padding: 0;
+    .line-label {
+      color: #999;
+      height: 100%;
+      padding: 0 0.8rem 0 0.2rem;
+    }
+  }
+}
+</style>
+
+
 <style lang="scss" scoped>
 .code {
-  line-height: 1.2;
+  line-height: 1.4;
 }
 </style>

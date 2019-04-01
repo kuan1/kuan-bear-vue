@@ -34,7 +34,7 @@ export default {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   font-size: 16px;
 }
-li {
+ul li {
   list-style: disc;
   list-style-position: inside;
 }

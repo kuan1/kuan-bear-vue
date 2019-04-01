@@ -1,5 +1,9 @@
 <template>
-  <code-container :html="html" />
+  <div>
+    <code-container :html="`<pre><code>${html}</code></pre>`" />
+    <button @click="copy" class="k-button primary">复制</button>
+  </div>
+
 </template>
 
 <script>
@@ -12,20 +16,21 @@ export default {
   data() {
     return {
       html: `
-  <pre>
-    <code>
-      const fs = require('fs')
-      const axios = require('axios')
-      const cheerio = require('cheerio')
+const fs = require('fs')
+const axios = require('axios')
+const cheerio = require('cheerio')
 
-      const baseUrl = 'https://pixabay.com'
+const baseUrl = 'https://pixabay.com'
 
-      let page = 1
+let page = 1
 
-      const url = 'https://pixabay.com/images/search/nature/?cat=science'
-    </code>
-  </pre>
+const url = 'https://pixabay.com/images/search/nature/?cat=science'
 `
+    }
+  },
+  methods: {
+    copy() {
+      this.html += this.html
     }
   }
 }
