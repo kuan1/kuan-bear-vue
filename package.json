@@ -31,6 +31,7 @@
     "@babel/runtime": "^7.1.5",
     "axios": "^0.18.0",
     "kuan-css": "^1.0.1",
+    "kuan-request": "^1.1.4",
     "kuan-utils": "^1.3.0",
     "qrcode": "^1.2.2",
     "vconsole": "^3.3.0",

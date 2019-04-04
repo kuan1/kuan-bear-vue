@@ -1,10 +1,15 @@
 <template>
-  <div ref="code" class="code" v-html="html"></div>
+  <div class="code-container">
+    <span @click="copy" class="copy-btn">复制</span>
+    <div ref="code" class="code" v-html="html"></div>
+  </div>
 </template>
 
 <script>
 import hljs from 'highlight.js'
 import 'highlight.js/styles/androidstudio.css'
+import { copy } from 'kuan-utils'
+import { toast } from 'kuan-request'
 
 export default {
   props: {
@@ -24,6 +29,12 @@ export default {
     this.init()
   },
   methods: {
+    copy() {
+      const reg = /<\/?.+?\/?>/g
+      const str = this.html.replace(reg, '')
+      copy(str)
+      toast('复制成功')
+    },
     init() {
       const blocks = this.$refs.code.querySelectorAll('pre code');
       blocks.forEach((block, num) => {
@@ -44,6 +55,7 @@ export default {
 .hljs {
   .line {
     padding: 0;
+    line-height: 1.4;
     .line-label {
       color: #999;
       height: 100%;
@@ -56,7 +68,22 @@ export default {
 
 
 <style lang="scss" scoped>
-.code {
-  line-height: 1.4;
+.code-container {
+  position: relative;
+  &:hover {
+    .copy-btn {
+      opacity: 1;
+    }
+  }
+  .copy-btn {
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    font-size: 14px;
+    color: #999;
+    opacity: 0;
+    transition: opacity 0.3s;
+    cursor: pointer;
+  }
 }
 </style>
