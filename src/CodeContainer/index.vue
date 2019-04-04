@@ -48,6 +48,7 @@ export default {
       color: #999;
       height: 100%;
       padding: 0 0.8rem 0 0.2rem;
+      user-select: none;
     }
   }
 }
