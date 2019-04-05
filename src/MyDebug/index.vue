@@ -1,13 +1,17 @@
 <template>
   <div class="debug-outer">
     <div class="debug-container">
-      <div @click="toHome" class="button">返回首页</div>
-      <div @click="clear" class="button button-primary">清空缓存</div>
+      <button @click="changeConsole" :class="$route.query.vconsole ? 'danger' : ''" class="k-button">{{!$route.query.vconsole ? '显示' : '隐藏'}}vconsole</button>
+      <button @click="clear" class="k-button">清空缓存</button>
+      <button @click="toHome" class="k-button primary">返回首页</button>
+
+      <div class="tip">需要引入v-console组件</div>
     </div>
   </div>
 </template>
 
 <script>
+
 export default {
   methods: {
     clear() {
@@ -16,6 +20,13 @@ export default {
     },
     toHome() {
       this.$router.push({ path: '/' })
+    },
+    changeConsole() {
+      if (this.$route.query.vconsole) {
+        this.$router.replace({ query: { vconsole: '' } })
+      } else {
+        this.$router.replace({ query: { vconsole: 1 } })
+      }
     }
   }
 }
@@ -31,30 +42,20 @@ export default {
   width: 350px;
   max-width: 90%;
   margin: 0 auto;
-  & > div {
-    margin: 20px;
+  .tip {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    line-height: 3;
+    color: #999;
+    font-size: 12px;
+    box-sizing: border-box;
   }
 }
-.button {
-  border-radius: 5px;
+.k-button {
   display: block;
-  outline: 0 none;
-  box-sizing: border-box;
-  padding: 0;
-  text-align: center;
-  font-size: 18px;
-  height: 47px;
-  line-height: 47px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  word-break: break-word;
-  white-space: nowrap;
-  cursor: pointer;
-  background: white;
-}
-.button-primary {
-  color: #fff;
-  background-color: #108ee9;
-  border: 1px solid #108ee9;
+  width: 100%;
 }
 </style>

@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     init() {
-      if (this.$route.query.vconsole !== '1') {
+      if (!this.$route.query.vconsole) {
         this.destoryConsole()
       } else {
         this.vConsole = new VConsole()

@@ -22,8 +22,6 @@ requireAll(require.context('./views', true, /index\.vue/))
 
 export { routes }
 
-console.log(routes)
-
 const router = new Router({
   mode: 'hash',
   routes

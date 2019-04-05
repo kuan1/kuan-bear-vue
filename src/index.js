@@ -5,6 +5,9 @@ import HeadRoom from './HeadRoom'
 import PileCard from './PileCard'
 import MyList from './MyList'
 import MyDebug from './MyDebug'
+import VConsole from './VConsole'
+import loading from './MyLoading/index.js'
+import toast from './MyToast/index.js'
 
 // 自定义指令
 import directives from './utils/directives'
@@ -19,11 +22,17 @@ export {
   HeadRoom,
   PileCard,
   MyList,
-  MyDebug
+  MyDebug,
+  VConsole,
+  loading,
+  toast
 }
 
 export default {
   install(Vue) {
+    Vue.protoType.$loading = loading
+    Vue.protoType.$toast = toast
+
     Vue.use(directives)
     // 注入自定义过滤器
     Object.keys(filters).forEach(key => {

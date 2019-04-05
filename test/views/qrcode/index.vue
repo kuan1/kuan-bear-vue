@@ -1,5 +1,7 @@
 <template>
-  <qrcode style="border: 1px solid red" url="https:://luzhongkuan.cn" />
+  <div style="padding: 20px" class="center-flex">
+    <qrcode url="https:://luzhongkuan.cn" />
+  </div>
 </template>
 
 <script>

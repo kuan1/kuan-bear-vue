@@ -7,6 +7,7 @@
         </div>
       </div>
     </room>
+    <h3 class="text-item" style="line-height: 3;text-align: center;" v-for="item in 500" :key="item">{{item}}</h3>
   </div>
 </template>
 
@@ -21,7 +22,6 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  height: 3000px;
   background: #f5f5f5;
 }
 .header {
@@ -36,13 +36,6 @@ export default {
     overflow: auto;
     background: black;
     mask-image: linear-gradient(
-      to right,
-      transparent,
-      black 20px,
-      black 90%,
-      transparent
-    );
-    -webkit-mask-image: linear-gradient(
       to right,
       transparent,
       black 20px,
