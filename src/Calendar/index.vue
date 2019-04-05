@@ -109,7 +109,14 @@ export default {
     }
   },
   mounted() {
-    this.init()
+    if (this.mixin && this.mixin.length) {
+      this.init({
+        year: this.mixin[0].value[0],
+        month: this.mixin[0].value[1]
+      })
+    } else {
+      this.init({ year: this.y || y, month: this.m || m })
+    }
   },
   methods: {
     init({ year: y, month: m } = {}) {
@@ -170,6 +177,9 @@ $main-color: #ff6633;
     border: 1px solid #eeeeee;
     position: relative;
   }
+  th {
+    height: 16px;
+  }
   th:first-child,
   th:last-child {
     color: $main-color;
@@ -220,7 +230,7 @@ $main-color: #ff6633;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 32rpx;
+    height: 32px;
     font-size: 16px;
     padding: 0 14px;
   }

@@ -3986,10 +3986,10 @@ kind-of@^6.0.0, kind-of@^6.0.2:
   resolved "https://registry.npmjs.org/kind-of/-/kind-of-6.0.2.tgz#01146b36a6218e64e58f3a8d66de5d7fc6f6d051"
   integrity sha512-s5kLOcnH0XqDO+FvuaLX8DDjZ18CGFk7VygH40QoKPUQhW4e2rvM0rwUq0t8IQDOwYSeLK01U90OjzBTme2QqA==
 
-kuan-css@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/kuan-css/-/kuan-css-1.0.1.tgz#0bbc38c0b72b2fd81b461de88992fa4a3bf1714b"
-  integrity sha512-o66trQZolUBa8XqqMoy8hiYByPwXWHcMae0AIc84UBLCgmDXdvmsaUjpHnSnQF48oSzTVRHNrqo6aoqqGfi7nw==
+kuan-css@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/kuan-css/-/kuan-css-1.0.2.tgz#acc747c5fd0f010f6567c96bdd63bf3939c471a9"
+  integrity sha512-8NqmKPZeQYowN11UYM/1dgSWOKNyZFFjpxKTUB3GKqarp7SmnPP0tTsLL9LgroSDv9e7Vm+5JUrZgB3Z6ho7IA==
 
 kuan-pack-vue@^2.0.6:
   version "2.0.6"

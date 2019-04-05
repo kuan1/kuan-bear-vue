@@ -3,6 +3,8 @@ import QrCode from './QrCode'
 import MyVideo from './MyVideo'
 import HeadRoom from './HeadRoom'
 import PileCard from './PileCard'
+import MyList from './MyList'
+import MyDebug from './MyDebug'
 
 // 自定义指令
 import directives from './utils/directives'
@@ -15,7 +17,9 @@ export {
   QrCode,
   MyVideo,
   HeadRoom,
-  PileCard
+  PileCard,
+  MyList,
+  MyDebug
 }
 
 export default {

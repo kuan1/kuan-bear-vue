@@ -1,10 +1,10 @@
 <template>
   <div class="vconsole">
     <router-link :to="{query: {vconsole: '1'}}" replace>
-      <div class="k-button primary">显示vconsole</div>
+      <button class="k-button primary">显示</button>
     </router-link>
     <router-link :to="{query: {vconsole: ''}}">
-      <div class="k-button">隐藏</div>
+      <button class="k-button">隐藏</button>
     </router-link>
     <v-console />
   </div>
@@ -20,5 +20,8 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+.k-button {
+  background: white;
+}
 </style>

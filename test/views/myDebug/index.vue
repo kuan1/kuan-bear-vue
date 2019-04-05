@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import Debug from '../../../src/Debug'
+import Debug from '../../../src/MyDebug'
 
 export default {
   components: {
