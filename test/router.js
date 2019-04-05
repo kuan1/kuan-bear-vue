@@ -15,7 +15,7 @@ function requireAll(r) {
   })
 }
 
-requireAll(require.context('./view', true, /index\.vue/))
+requireAll(require.context('./views', true, /index\.vue/))
 
 export {
   routes
