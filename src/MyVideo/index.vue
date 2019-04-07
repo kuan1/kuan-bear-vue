@@ -1,6 +1,6 @@
 <template>
   <div class="video-wrap" @click.stop="playHandler">
-    <video v-if="src" ref="video" width="100%" class="video" :poster="poster" :src="src" :controls="isPlaying" :autoplay="autoplay" controlsList="nodownload" x-webkit-airplay="true" webkit-playsinline="true" playsinline="true" x5-playsinline="true" preload="none" x5-video-player-type='h5' x5-video-player-fullscreen='true' :muted="muted" @pause="pause" @play="play" @loadedmetadata="loadedmetadata" @timeupdate="timeupdate" @ended="ended"></video>
+    <video v-show="src" ref="video" width="100%" class="video" :poster="poster" :src="src" :controls="isPlaying" :autoplay="autoplay" controlsList="nodownload" x-webkit-airplay="true" webkit-playsinline="true" playsinline="true" x5-playsinline="true" preload="none" x5-video-player-type='h5' x5-video-player-fullscreen='true' :muted="muted" @pause="pause" @play="play" @loadedmetadata="loadedmetadata" @timeupdate="timeupdate" @ended="ended"></video>
     <img v-if="!hiddenIcon" class="play-btn" v-show="!isPlaying" src="./images/play_icon.png">
   </div>
 </template>
@@ -57,9 +57,11 @@ export default {
     },
     pause() {
       this.isPlaying = false
-      const { paused } = this.$refs.video
+      const { video } = this.$refs
+      if (!video) return
+      const { paused } = video
       if (!paused) {
-        this.$refs.video.pause()
+        video.pause()
       }
       this.$emit('pause')
     },
