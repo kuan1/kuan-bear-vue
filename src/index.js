@@ -8,6 +8,7 @@ import MyDebug from './MyDebug'
 import VConsole from './VConsole'
 import loading from './MyLoading/index.js'
 import toast from './MyToast/index.js'
+import MdEditor from './MdEditor'
 
 // 自定义指令
 import directives from './utils/directives'
@@ -25,7 +26,8 @@ export {
   MyDebug,
   VConsole,
   loading,
-  toast
+  toast,
+  MdEditor
 }
 
 export default {
