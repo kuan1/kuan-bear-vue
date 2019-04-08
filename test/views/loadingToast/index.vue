@@ -11,7 +11,7 @@ import { loading, toast } from '../../../src'
 export default {
   methods: {
     show() {
-      loading.show('1234')
+      loading.show('加载中...')
       setTimeout(() => {
         loading.hide()
       }, 3000)
