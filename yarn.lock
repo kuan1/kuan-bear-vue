@@ -3324,6 +3324,7 @@ highlight.js@^9.15.6:
   resolved "https://registry.npmjs.org/highlight.js/-/highlight.js-9.15.6.tgz#72d4d8d779ec066af9a17cb14360c3def0aa57c4"
   integrity sha512-zozTAWM1D6sozHo8kqhfYgsac+B+q0PmsjXeyDrYIHHcBN0zTVT66+s2GW1GZv7DbyaROdLXKdabwS/WqPyIdQ==
 
+<<<<<<< HEAD
 hls.js@^0.12.4:
   version "0.12.4"
   resolved "http://registry.npm.taobao.org/hls.js/download/hls.js-0.12.4.tgz#c155b7b2825a11117c111b781973c0ffa759006b"
@@ -3332,6 +3333,8 @@ hls.js@^0.12.4:
     eventemitter3 "3.1.0"
     url-toolkit "^2.1.6"
 
+=======
+>>>>>>> 4cebd17eb5c3cf5467bf74dc09cee35496fffba7
 hmac-drbg@^1.0.0:
   version "1.0.1"
   resolved "https://registry.npmjs.org/hmac-drbg/-/hmac-drbg-1.0.1.tgz#d2745701025a6c775a6c545793ed502fc0c649a1"

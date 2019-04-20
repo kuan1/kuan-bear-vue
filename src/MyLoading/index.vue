@@ -91,6 +91,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 5000;
   .loading {
     padding: 15px 25px;
     background-color: rgba(0, 0, 0, 0.8);

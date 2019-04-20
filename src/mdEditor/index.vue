@@ -1,11 +1,11 @@
 <template>
   <div class="md-container">
     <div class="action">
-      <img class="icon" v-if="visible" src="./images/eye-active.png" @click="visible = false">
-      <img class="icon" src="./images/eye.png" v-else @click="visible = true">
+      <!-- <img class="icon" v-if="visible" src="./images/eye-active.png" @click="visible = false"> -->
+      <!-- <img class="icon" src="./images/eye.png" v-else @click="visible = true"> -->
       <img @click="isPreview = !isPreview" v-if="isPreview" src="./images/preview.png" class="icon" alt="">
-      <img class="icon" src="./images/eye.png" v-else @click="isPreview = true">
-      <img src="./images/full.png" class="icon" @click="full">
+      <!-- <img class="icon" src="./images/eye.png" v-else @click="isPreview = true">
+      <img src="./images/full.png" class="icon" @click="full"> -->
     </div>
     <div class="main-container">
       <textarea v-if="!isPreview" class="md-left" :value="input" @input="changeInput"></textarea>

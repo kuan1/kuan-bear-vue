@@ -1,5 +1,5 @@
 <template>
-  <dplayer />
+  <dplayer src="https://www.w3cschool.cn/statics/demosource/mov_bbb.mp4" />
 </template>
 
 <script>
