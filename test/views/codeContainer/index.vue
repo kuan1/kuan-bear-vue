@@ -15,9 +15,7 @@ export default {
   },
   data() {
     return {
-      html: `
-<h2>123414</h2>
-// test
+      html: `// test
 const fs = require('fs')
 const axios = require('axios')
 const cheerio = require('cheerio')

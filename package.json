@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/kuan1/kuan-bear-vue#readme",
   "devDependencies": {
+    "dplayer": "^1.25.0",
     "highlight.js": "^9.15.6",
+    "hls.js": "^0.12.4",
     "kuan-pack-vue": "^2.0.6",
     "marked": "^0.6.2",
     "node-sass": "^4.11.0",
