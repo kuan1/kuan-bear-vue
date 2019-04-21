@@ -9,6 +9,7 @@ import VConsole from './VConsole'
 import loading from './MyLoading/index.js'
 import toast from './MyToast/index.js'
 import MdEditor from './MdEditor'
+import MyNav from './MyNav'
 
 // 自定义指令
 import directives from './utils/directives'
@@ -27,7 +28,8 @@ export {
   VConsole,
   loading,
   toast,
-  MdEditor
+  MdEditor,
+  MyNav
 }
 
 export default {

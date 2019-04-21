@@ -22,7 +22,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  background: #f5f5f5;
+  background: white;
 }
 .header {
   background: black;

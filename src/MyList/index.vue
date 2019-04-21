@@ -48,9 +48,10 @@ export default {
 }
 .name {
   color: #333;
+  font-size: 16px;
 }
 .extra {
-  color: #999;
+  color: #666;
 }
 .my-list-item {
   margin-left: 16px;

@@ -1,11 +1,20 @@
 <template>
   <div class="test-container">
-    <my-list v-if="$route.path === '/'" @click="toDetail" title="我的组件" :data="data"></my-list>
-    <router-view v-else></router-view>
-
-    <button class="back-home" @click="backHome">
-      <i class="iconfont icon-home"></i>
-    </button>
+    <div v-if="$route.path === '/'">
+      <div class="logo-header">
+        <div class="swing">
+          <h1>{{pkg.name}}</h1>
+          <p>当前版本{{pkg.version}}</p>
+        </div>
+      </div>
+      <my-list class="list-conainer" @click="toDetail" :data="data"></my-list>
+    </div>
+    <div v-else>
+      <my-nav :data="data" />
+      <div class="test-wrap">
+        <router-view></router-view>
+      </div>
+    </div>
 
     <v-console />
   </div>
@@ -14,6 +23,8 @@
 <script>
 import { MyList, VConsole } from '../src'
 import { routes } from './router.js'
+import pkg from '../package.json'
+import MyNav from './views/myNav'
 
 const nameMap = {
   calendar: '日历',
@@ -39,11 +50,13 @@ const data = routes.map(item => {
 export default {
   components: {
     MyList,
-    VConsole
+    VConsole,
+    MyNav
   },
   data() {
     return {
-      data
+      data,
+      pkg
     }
   },
   methods: {
@@ -58,40 +71,51 @@ export default {
 </script>
 
 <style lang="scss">
+@keyframes swing {
+  0% {
+    transform: perspective(400px) rotateY(90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    transform: perspective(400px) rotateY(-40deg);
+    animation-timing-function: ease-in;
+  }
+  60% {
+    transform: perspective(400px) rotateY(25deg);
+    opacity: 1;
+  }
+  80% {
+    transform: perspective(400px) rotateY(-10deg);
+  }
+  100% {
+    transform: perspective(400px);
+  }
+}
+.swing {
+  animation: swing 2s;
+}
 .test-container {
+  background: #f6f6f6;
+}
+.logo-header {
+  line-height: 2;
+  padding: 20px 0;
+  text-align: center;
+  background: white;
+}
+.test-wrap {
   max-width: 500px;
   background: #e7e7ef;
-  margin: 0 auto;
+  margin: 20px auto;
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
   &:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   }
 }
-.back-home {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  bottom: 50px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  border: none;
-  border-radius: 50%;
-  background: white;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-  &:hover {
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
-    .iconfont {
-      color: #999;
-      border-color: #999;
-    }
-  }
-  .iconfont {
-    color: #ccc;
-    font-size: 20px;
-  }
+.list-conainer {
+  width: 95%;
+  margin: 20px auto;
 }
 </style>
