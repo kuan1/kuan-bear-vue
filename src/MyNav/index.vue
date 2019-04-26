@@ -1,12 +1,13 @@
 <template>
   <div class="my-nav-container" :class="{open}">
     <div class="logo-container">
-      <router-link class="logo" to="/">kuan-bear-vue</router-link>
+      <router-link class="logo" to="/">
+        <slot>kuan-bear-vue</slot>
+      </router-link>
     </div>
-    <div @click="open = true" class="menu-btn"></div>
-    <nav @click="open = false" class="links">
+    <div v-if="data.length" @click="open = !open" class="menu-btn"></div>
+    <nav class="links">
       <router-link v-for="(item, key) in data" :key="key" :to="item.to" :class="{active: item.active}" class="link animated fadeIn">{{item.name}}</router-link>
-      <i class="iconfont icon-close animated fadeIn"></i>
     </nav>
   </div>
 </template>
@@ -22,6 +23,11 @@ export default {
   data() {
     return {
       open: false
+    }
+  },
+  watch: {
+    $route() {
+      this.open = false
     }
   }
 }
@@ -56,13 +62,11 @@ $color: #0a0a0a;
     opacity: 0.65;
   }
 }
-.icon-close {
-  display: none;
-}
 .menu-btn {
   width: 18px;
   height: 16px;
   position: relative;
+  display: none;
   &::after,
   &::before {
     content: "";
@@ -72,6 +76,7 @@ $color: #0a0a0a;
     background: #fff;
     position: absolute;
     bottom: 0;
+    transition: transform 0.3s;
   }
   &:before {
     top: 0;
@@ -93,7 +98,7 @@ $color: #0a0a0a;
     visibility: hidden;
     position: fixed;
     left: 0;
-    top: 0;
+    top: 48px;
     width: 100%;
     height: 100%;
     z-index: 1000;
@@ -102,24 +107,34 @@ $color: #0a0a0a;
     background: $color;
     font-size: 16px;
     line-height: 2;
-    padding-top: 40px;
+    padding-top: 30px;
     box-sizing: border-box;
-    clip-path: circle(40px at 100% 0);
-    transition: all 0.5s ease-in;
+    clip-path: circle(0 at 100% 0);
+    transition: clip-path 0.3s ease-in, visibility 0.3s;
   }
-  .icon-close {
+  .menu-btn {
     display: block;
-    position: absolute;
-    right: 20px;
-    top: 10px;
-    font-size: 20px;
-    font-weight: bold;
   }
   .open {
     .links {
       visibility: visible;
-      clip-path: circle(2000px at 100% 0);
+      clip-path: circle(1000px at 100% 0);
       background: #333;
+    }
+    .menu-btn {
+      &::after,
+      &::before {
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        box-shadow: none;
+      }
+      &:after {
+        transform: rotate(45deg);
+      }
+      &:before {
+        transform: rotate(-45deg);
+      }
     }
   }
 }
