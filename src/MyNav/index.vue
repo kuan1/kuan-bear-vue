@@ -7,7 +7,13 @@
     </div>
     <div v-if="data.length" @click="open = !open" class="menu-btn"></div>
     <nav class="links">
-      <router-link v-for="(item, key) in data" :key="key" :to="item.to" :class="{active: item.active}" class="link animated fadeIn">{{item.name}}</router-link>
+      <router-link
+        v-for="(item, key) in data"
+        :key="key"
+        :to="item.to"
+        :class="{active: item.active}"
+        class="link animated fadeIn"
+      >{{item.name}}</router-link>
     </nav>
   </div>
 </template>
@@ -34,10 +40,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$color: #0a0a0a;
+$color: #24292e;
 .my-nav-container {
   padding: 0 5%;
-  height: 48px;
+  height: 55px;
   background: $color;
   display: flex;
   align-items: center;
@@ -45,7 +51,7 @@ $color: #0a0a0a;
   color: #eee;
 }
 .logo {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   color: white;
   text-decoration: none;
@@ -55,11 +61,12 @@ $color: #0a0a0a;
 }
 .link {
   color: #efefef;
-  padding: 0 8px;
+  padding: 6px 10px;
+  font-size: 16px;
   &.active,
   &:active,
   &:hover {
-    opacity: 0.65;
+    color: #ccc;
   }
 }
 .menu-btn {
