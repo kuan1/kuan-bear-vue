@@ -48,11 +48,10 @@ $color: #24292e;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #eee;
+  color: #9d9d9d;
 }
 .logo {
   font-size: 18px;
-  font-weight: bold;
   color: white;
   text-decoration: none;
   &:hover {
@@ -60,13 +59,13 @@ $color: #24292e;
   }
 }
 .link {
-  color: #efefef;
+  color: #9d9d9d;
   padding: 6px 10px;
   font-size: 16px;
   &.active,
   &:active,
   &:hover {
-    color: #ccc;
+    color: white;
   }
 }
 .menu-btn {
