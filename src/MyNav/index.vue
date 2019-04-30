@@ -125,7 +125,7 @@ $color: #24292e;
     .links {
       visibility: visible;
       clip-path: circle(1000px at 100% 0);
-      background: #333;
+      background: $color;
     }
     .menu-btn {
       &::after,
