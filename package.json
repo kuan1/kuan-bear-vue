@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node build/dev",
     "build": "rimraf lib && node build/build",
-    "build:demo": "rimraf demo && node build/buildDemo",
+    "build:docs": "rimraf dist && node build/buildDocs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
