@@ -5,11 +5,8 @@ username=kuan1
 repo=kuan-bear-vue
 dist=dist
 
-# rm
-rm -fr $dist
-
 # build
-npm run build:docs
+npm run build:gh
 # navigate into the build output directory
 cd $dist
 
