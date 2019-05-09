@@ -4,7 +4,7 @@
 
 > 重新整理中...
 
-[预览地址](http://kuan1.top/kuan-bear-vue/#/)
+[预览地址](https://kuan1.top/kuan-bear-vue/#/)
 
 ## 使用
 
