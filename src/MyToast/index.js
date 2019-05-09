@@ -7,7 +7,7 @@ let loading
 let timer
 
 export default (tips = '', time = 1500) => {
-  if (typeof window === 'undefined') return
+  if (typeof window === 'undefined' || !tips) return
   if (!loading) {
     loading = new Instance({
       el: document.createElement('div')

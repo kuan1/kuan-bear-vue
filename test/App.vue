@@ -10,13 +10,13 @@
       <my-list class="list-conainer" @click="toDetail" :data="data"></my-list>
     </div>
     <div v-else>
-      <my-nav :data="data" />
+      <my-nav :data="data"/>
       <div class="test-wrap">
         <router-view></router-view>
       </div>
     </div>
 
-    <v-console />
+    <v-console/>
   </div>
 </template>
 
@@ -38,7 +38,7 @@ const nameMap = {
   'loading': '加载中'
 }
 
-const data = routes.map(item => {
+const data = routes.filter(item => !item.path.includes('test')).map(item => {
   const name = item.path.replace('/', '')
   return {
     name,
@@ -97,6 +97,7 @@ export default {
   animation: swing 2s;
 }
 .test-container {
+  overflow: hidden;
   background: #f6f6f6;
 }
 .logo-header {
@@ -107,12 +108,8 @@ export default {
 }
 .test-wrap {
   max-width: 500px;
-  background: #e7e7ef;
+  min-height: 50vh;
   margin: 20px auto;
-  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
-  &:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  }
 }
 .list-conainer {
   width: 95%;

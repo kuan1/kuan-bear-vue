@@ -1,66 +1,30 @@
 <template>
   <div class="loading-container" v-if="visible">
-    <div class="loading animated fadeIn">
-      <div v-if="loading" class="spinner spinner-ios">
-        <svg viewBox="0 0 64 64">
-          <g stroke-width="4" stroke-linecap="round">
-            <line y1="17" y2="29" transform="translate(32,32) rotate(180)">
-              <animate attributeName="stroke-opacity" dur="750ms" values="1;.85;.7;.65;.55;.45;.35;.25;.15;.1;0;1" repeatCount="indefinite"></animate>
-            </line>
-            <line y1="17" y2="29" transform="translate(32,32) rotate(210)">
-              <animate attributeName="stroke-opacity" dur="750ms" values="0;1;.85;.7;.65;.55;.45;.35;.25;.15;.1;0" repeatCount="indefinite"></animate>
-            </line>
-            <line y1="17" y2="29" transform="translate(32,32) rotate(240)">
-              <animate attributeName="stroke-opacity" dur="750ms" values=".1;0;1;.85;.7;.65;.55;.45;.35;.25;.15;.1" repeatCount="indefinite"></animate>
-            </line>
-            <line y1="17" y2="29" transform="translate(32,32) rotate(270)">
-              <animate attributeName="stroke-opacity" dur="750ms" values=".15;.1;0;1;.85;.7;.65;.55;.45;.35;.25;.15" repeatCount="indefinite"></animate>
-            </line>
-            <line y1="17" y2="29" transform="translate(32,32) rotate(300)">
-              <animate attributeName="stroke-opacity" dur="750ms" values=".25;.15;.1;0;1;.85;.7;.65;.55;.45;.35;.25" repeatCount="indefinite"></animate>
-            </line>
-            <line y1="17" y2="29" transform="translate(32,32) rotate(330)">
-              <animate attributeName="stroke-opacity" dur="750ms" values=".35;.25;.15;.1;0;1;.85;.7;.65;.55;.45;.35" repeatCount="indefinite"></animate>
-            </line>
-            <line y1="17" y2="29" transform="translate(32,32) rotate(0)">
-              <animate attributeName="stroke-opacity" dur="750ms" values=".45;.35;.25;.15;.1;0;1;.85;.7;.65;.55;.45" repeatCount="indefinite"></animate>
-            </line>
-            <line y1="17" y2="29" transform="translate(32,32) rotate(30)">
-              <animate attributeName="stroke-opacity" dur="750ms" values=".55;.45;.35;.25;.15;.1;0;1;.85;.7;.65;.55" repeatCount="indefinite"></animate>
-            </line>
-            <line y1="17" y2="29" transform="translate(32,32) rotate(60)">
-              <animate attributeName="stroke-opacity" dur="750ms" values=".65;.55;.45;.35;.25;.15;.1;0;1;.85;.7;.65" repeatCount="indefinite"></animate>
-            </line>
-            <line y1="17" y2="29" transform="translate(32,32) rotate(90)">
-              <animate attributeName="stroke-opacity" dur="750ms" values=".7;.65;.55;.45;.35;.25;.15;.1;0;1;.85;.7" repeatCount="indefinite"></animate>
-            </line>
-            <line y1="17" y2="29" transform="translate(32,32) rotate(120)">
-              <animate attributeName="stroke-opacity" dur="750ms" values=".85;.7;.65;.55;.45;.35;.25;.15;.1;0;1;.85" repeatCount="indefinite"></animate>
-            </line>
-            <line y1="17" y2="29" transform="translate(32,32) rotate(150)">
-              <animate attributeName="stroke-opacity" dur="750ms" values="1;.85;.7;.65;.55;.45;.35;.25;.15;.1;0;1" repeatCount="indefinite"></animate>
-            </line>
-          </g>
-        </svg>
-      </div>
-
-      <span v-if="tips" class="tips" v-html="tips"></span>
+    <div class="animated fadeIn">
+      <loading-monitor v-if="!tips" :type="type"/>
+      <div v-else class="tips" v-html="tips"></div>
     </div>
   </div>
 </template>
 <script>
+import LoadingMonitor from './LoadingMonitor/index.vue'
+
 function preventDefault(e) {
   e.preventDefault()
 }
 
 export default {
+  components: {
+    LoadingMonitor
+  },
   props: {
     tips: {
       type: String,
+      default: ''
     },
-    loading: {
-      type: Boolean,
-      default: true
+    type: {
+      type: String,
+      default: 'Dots'
     }
   },
   data() {
@@ -82,6 +46,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+$loading-color: rgba(0, 0, 0, 0.7);
 .loading-container {
   position: fixed;
   left: 0;
@@ -92,29 +57,19 @@ export default {
   align-items: center;
   justify-content: center;
   z-index: 5000;
-  .loading {
-    padding: 15px 25px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-radius: 5px;
-  }
-
-  .spinner {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 3px;
-  }
-  .spinner svg {
-    width: 28px;
-    height: 28px;
-    stroke: #fff;
-    fill: #fff;
-  }
-
   .tips {
-    font-size: 12px;
+    padding: 15px 25px;
+    background-color: $loading-color;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 1.3;
     color: white;
     text-align: center;
     word-break: break-all;
+    &.loading {
+      background: transparent;
+      color: $loading-color;
+    }
   }
 }
 .animated {

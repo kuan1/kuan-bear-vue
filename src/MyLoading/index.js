@@ -5,7 +5,7 @@ const Instance = Vue.extend(Loading)
 
 let loading
 
-function show(tips) {
+function show(type) {
   if (typeof window === 'undefined') return
   if (!loading) {
     loading = new Instance({
@@ -14,7 +14,11 @@ function show(tips) {
     document.body.appendChild(loading.$el)
   }
   Vue.nextTick(() => {
-    loading.tips = tips
+    loading.tips = ''
+    if (loading.type) {
+      loading.type = type
+      console.log(loading)
+    }
     loading.show()
   })
 }

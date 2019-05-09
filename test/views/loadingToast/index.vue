@@ -11,10 +11,10 @@ import { loading, toast } from '../../../src'
 export default {
   methods: {
     show() {
-      loading.show('加载中...')
+      loading.show('Dots')
       setTimeout(() => {
         loading.hide()
-      }, 3000)
+      }, 30000)
     },
     toast() {
       toast('哈哈哈', 3000)
