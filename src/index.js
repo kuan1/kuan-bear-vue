@@ -17,7 +17,11 @@ import directives from './utils/directives'
 // 过滤器
 import { filters } from 'kuan-utils'
 
+// 其他工具类
+import VueMonitor from './utils/VueMonitor'
+
 export {
+  VueMonitor,
   // 组件
   QrCode,
   MyVideo,
