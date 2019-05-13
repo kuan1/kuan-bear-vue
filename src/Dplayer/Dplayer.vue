@@ -1,12 +1,16 @@
 <template>
   <div class="full">
-    <div class="dplayer-container" ref="player">
-    </div>
+    <div class="dplayer-container" ref="player"></div>
     <div v-if="poster && posterIsShow" @click="play" class="cover-wraper" style="z-index: 10000">
       <img v-if="poster" class="poster" :src="poster" alt="poster">
     </div>
 
-    <img @click="play" v-if="!isPlay && (src || quality.length)" class="play-btn fadeIn animated" src="./play_icon.png">
+    <img
+      @click="play"
+      v-if="!isPlay && (src || quality.length)"
+      class="play-btn fadeIn animated"
+      src="./play_icon.png"
+    >
 
     <div v-if="label && posterIsShow" class="video-label center-flex">0元任选</div>
   </div>
@@ -50,7 +54,7 @@ export default {
       const urls = [...this.urls].reverse()
       return urls.map(item => ({
         url: item.play_url,
-        name: names[item.definition] || item.definition,
+        name: names[item.definition] || item.definition || item.name,
       }))
     }
   },
