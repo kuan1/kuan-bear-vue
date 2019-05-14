@@ -40,8 +40,8 @@ export {
 
 export default {
   install(Vue) {
-    Vue.protoType.$loading = loading
-    Vue.protoType.$toast = toast
+    Vue.prototype.$loading = loading
+    Vue.prototype.$toast = toast
 
     Vue.use(directives)
     // 注入自定义过滤器
