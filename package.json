@@ -14,7 +14,14 @@
     "type": "git",
     "url": "git+https://github.com/kuan1/kuan-bear-vue.git"
   },
-  "keywords": [],
+  "files": [
+    "lib",
+    "src"
+  ],
+  "keywords": [
+    "vue",
+    "kuan"
+  ],
   "author": "luzhongk@126.com",
   "license": "ISC",
   "bugs": {
