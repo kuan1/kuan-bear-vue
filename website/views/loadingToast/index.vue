@@ -1,7 +1,7 @@
 <template>
   <div class="loading-test center-flex column">
-    <button @click="show" class="k-button primary">loading</button>
-    <button @click="toast" class="k-button primary">toast</button>
+    <button @click="show" class="k-btn k-btn-primary">loading</button>
+    <button @click="toast" class="k-btn k-btn-primary">toast</button>
   </div>
 </template>
 

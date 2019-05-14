@@ -1,7 +1,7 @@
 <template>
   <div>
-    <button @click="show" class="k-button primary">显示</button>
-    <button @click="hide" class="k-button">隐藏</button>
+    <button @click="show" class="k-btn k-btn-primary">显示</button>
+    <button @click="hide" class="k-btn">隐藏</button>
   </div>
 </template>
 

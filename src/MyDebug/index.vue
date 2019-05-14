@@ -1,9 +1,14 @@
 <template>
   <div class="debug-outer">
     <div class="debug-container">
-      <button @click="changeConsole" :class="$route.query.vconsole ? 'danger' : ''" class="k-button">{{!$route.query.vconsole ? '显示' : '隐藏'}}vconsole</button>
-      <button @click="clear" class="k-button">清空缓存</button>
-      <button @click="toHome" class="k-button primary">返回首页</button>
+      <button
+        @click="changeConsole"
+        :class="$route.query.vconsole ? 'danger' : ''"
+        class="k-btn"
+      >{{!$route.query.vconsole ? '显示' : '隐藏'}}vconsole</button>
+      <button @click="clearStorage" class="k-btn k-btn-danger">清空localStorage</button>
+      <button @click="clearCookie" class="k-btn k-btn-danger">清空cookie</button>
+      <button @click="toHome" class="k-btn k-btn-primary">返回首页</button>
 
       <div class="tip">需要引入v-console组件</div>
     </div>
@@ -14,9 +19,20 @@
 
 export default {
   methods: {
-    clear() {
+    clearStorage() {
       localStorage.clear()
-      alert('清空缓存成功')
+      alert('清空localStorage缓存成功')
+    },
+    clearCookie() {
+      const cookies = document.cookie.split(";");
+
+      for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i];
+        const eqPos = cookie.indexOf("=");
+        const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+      }
+      alert('清空cookie缓存成功')
     },
     toHome() {
       this.$router.push({ path: '/' })
@@ -54,8 +70,9 @@ export default {
     box-sizing: border-box;
   }
 }
-.k-button {
+.k-btn {
   display: block;
   width: 100%;
+  margin-bottom: 20px;
 }
 </style>

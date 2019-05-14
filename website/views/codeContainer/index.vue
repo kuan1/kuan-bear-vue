@@ -1,9 +1,8 @@
 <template>
   <div>
-    <code-container :html="`<pre><code>${html}</code></pre>`" />
-    <button @click="copy" class="k-button primary">复制</button>
+    <code-container :html="`<pre><code>${html}</code></pre>`"/>
+    <button @click="copy" class="k-btn k-btn-primary">复制</button>
   </div>
-
 </template>
 
 <script>

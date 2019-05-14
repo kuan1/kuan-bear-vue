@@ -36,7 +36,7 @@
     "axios": "^0.18.0",
     "dplayer": "^1.25.0",
     "hls.js": "^0.12.4",
-    "kuan-css": "^1.0.3",
+    "kuan-css": "^1.0.4",
     "kuan-utils": "^1.3.0",
     "qrcode": "^1.2.2",
     "vconsole": "^3.3.0"
