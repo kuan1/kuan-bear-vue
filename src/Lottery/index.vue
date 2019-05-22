@@ -11,19 +11,30 @@
 </template>
 
 <script>
+const requestAnimationFrame =
+  window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame
+  || window.msRequestAnimationFrame || ((callback) => window.setTimeout(callback, 1000 / 60))
+
+const cancelAnimationFrame = window.cancelAnimationFrame ||
+  window.webkitCancelAnimationFrame ||
+  window.mozCancelAnimationFrame ||
+  window.oCancelAnimationFrame ||
+  window.msCancelAnimationFrame ||
+  window.clearTimeout;
+
 export default {
   props: {
+    index: { // 中奖下标
+      type: Number,
+      required: true
+    },
     lotteryAngle: { // 初始度数
       type: Number,
       default: 0
     },
     total: { // 奖品个数
       type: Number,
-      required: true
-    },
-    index: { // 中奖下标
-      type: Number,
-      required: true
+      default: 8
     },
     bg: {
       type: String,
@@ -39,74 +50,73 @@ export default {
   data() {
     return {
       angle: this.lotteryAngle, // 初始度数
-      acceleration: 0.5, // 加速的加速度0.5
-      r_acceleration: 0.1, // 减速的加速度0.1
+      acceleration: 0.4, // 加速的加速度0.5
+      deceleration: 0.05, // 减速的加速度0.1
       firstTimes: 48, // 48次
-      prizeNum: this.total, // 奖品个数
       disabled: false
     }
   },
   watch: {
-    index() {
-      if (this.index >= 0) {
+    index(index) {
+      if (index >= 0) {
         this.startRotate()
       }
     }
   },
-  computed: {
-    difference() {
-      return (this.prizeNo / this.prizeNum) * 360 - 360 / this.prizeNum / 2
-    },
-    prizeNo() {
-      return this.index
+  beforeDestroy() {
+    if (this.timer) {
+      cancelAnimationFrame(this.timer)
     }
   },
   methods: {
     clickLottery() {
       this.$emit('click')
-      // this.startRotate()
     },
     startRotate() {
       if (this.disabled) return
       this.disabled = true
-      let self = this
-      let difference = this.difference
-      let speed = 0
-      let acceleration = self.acceleration // 加速的加速度
-      let racceleration = self.r_acceleration // 减速的加速度
-      let firstTimes = self.firstTimes //  执行48次 加速到highSpeed
-      let highSpeed = firstTimes * acceleration // 最高速度
-      let oneAngel = self.angle + firstTimes * (firstTimes - 1) / 2 * acceleration + highSpeed // 第一阶段的旋转度数
-      let secondTimes = 10 // 速度为highSpeed 继续执行10次
-      let twoAngel = oneAngel + secondTimes * firstTimes * acceleration // 第二阶段的旋转度数
-      let three = highSpeed / racceleration // 执行three次 速度从highSpeed减速到0
-      let add = 360 - (twoAngel + three * (three - 1) / 2 * racceleration) % 360 + difference // 使最后刚好转到起点位置
+      const difference = (this.index / this.total) * 360 - 360 / this.total / 2
+      const {
+        acceleration, // 加速度
+        deceleration, // 加速度 
+        firstTimes   // 执行48次 加速到highSpeed
+      } = this // 加速的加速度
+      const highSpeed = firstTimes * acceleration // 最高速度
+      // v = a * 1; s = vt + (a*t**2)/2
+      const oneAngel = this.angle + firstTimes * firstTimes / 2 * acceleration + highSpeed / 2 // 加速阶段的旋转度数
+      const secondTimes = 10 // 速度为highSpeed 匀速圈数
+      const twoAngel = oneAngel + secondTimes * highSpeed // 第二阶段的旋转度数
+      const three = highSpeed / deceleration // 减速到0 执行three次
+      let add = 360 - (twoAngel + three * (three - 1) / 2 * deceleration) % 360 + difference // 使最后刚好转到起点位置
       let twoAngelEnd = twoAngel + add // 第三阶段开始
-      let threeAngel = twoAngelEnd + three * (three - 1) / 2 * racceleration // 最后的旋转度数
+      let threeAngel = twoAngelEnd + three * (three - 1) / 2 * deceleration // 最后的旋转度数
+      const self = this
+      let speed = 0 // 初始速度
       function cicle() {
         if (self.angle < oneAngel) {
           speed += acceleration
+          // console.log(speed)
           self.angle += speed
         } else if (self.angle >= oneAngel && self.angle < twoAngel) {
           self.angle += speed
         } else if (self.angle.toFixed(2) === twoAngel.toFixed(2)) {
           self.angle += add
         } else if (self.angle > twoAngel && self.angle <= threeAngel) {
-          speed -= racceleration
+          speed -= deceleration
           if (speed <= 0) {
             speed = 0
             self.angle = threeAngel % 360
             self.flag = true
             self.$emit('end', {
-              prizeNo: self.prizeNo,
-              prizeNum: self.prizeNum
+              index: self.index,
+              total: self.total
             })
             self.disabled = false
             return false
           }
           self.angle += speed
         }
-        requestAnimationFrame(cicle)
+        self.timer = requestAnimationFrame(cicle)
       }
       cicle()
     }
