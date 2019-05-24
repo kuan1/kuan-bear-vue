@@ -42,9 +42,9 @@ export default {
       this.input = e.target.value
       this.$emit('input', this.input)
     },
-    full() {
-      fullScrren()
-    }
+    // full() {
+    //   fullScrren()
+    // }
   }
 }
 </script>
