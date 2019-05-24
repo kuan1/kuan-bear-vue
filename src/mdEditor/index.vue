@@ -56,16 +56,6 @@ export default {
   background: white;
   border: 1px solid #eee;
 }
-.action {
-  border-bottom: 1px solid #eee;
-  background: #f5f5f5;
-  padding: 0 15px;
-  .icon {
-    width: 20px;
-    height: 20px;
-    margin: 5px;
-  }
-}
 .main-container {
   min-height: 400px;
   display: flex;
