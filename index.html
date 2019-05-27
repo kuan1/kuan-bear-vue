@@ -16,6 +16,20 @@
       href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css"
       rel="stylesheet"
     />
+    <script>
+      !(function(n, w) {
+        var e = n.document,
+          t = e.documentElement,
+          o = 'orientationchange' in n ? 'orientationchange' : 'resize',
+          a = function() {
+            var n = t.clientWidth || w
+            t.style.fontSize = (n / w) * 100 + 'px'
+          }
+        e.addEventListener &&
+          (n.addEventListener(o, a, !1),
+          e.addEventListener('DOMContentLoaded', a, !1))
+      })(window, 750)
+    </script>
   </head>
 
   <body>

@@ -12,6 +12,7 @@ import toast from './MyToast/index.js'
 import MyNav from './MyNav'
 import SimplePage from './SimplePage'
 import Lottery from './Lottery'
+import Filtrate from './Filtrate'
 
 // 自定义指令
 import directives from './utils/directives'
@@ -37,7 +38,8 @@ export {
   // MdEditor,
   MyNav,
   SimplePage,
-  Lottery
+  Lottery,
+  Filtrate
 }
 
 export default {
