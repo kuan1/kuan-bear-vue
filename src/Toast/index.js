@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Loading from '../MyLoading/index.vue'
+import Loading from '../Loading/index.vue'
 
 const Instance = Vue.extend(Loading)
 

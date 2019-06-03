@@ -29,9 +29,10 @@ function fileDisplay(filePath) {
     if (isDir) {
       // 读取下一层
       const nextFile = fs.readdirSync(filedir)
-      let name = `${filedir.replace(firstPath, '').replace(/\\/, '')}${
+      const name = `${filedir.replace(firstPath, '').replace(/\\/, '')}${
         nextFile.includes('index.js') ? '/index.js' : '/index.vue'
       }`
+      console.log(name)
       collectFiles.push(name)
     } else if (isFile) {
       collectFiles.push(filedir.replace(firstPath, '').replace(/\\/, ''))

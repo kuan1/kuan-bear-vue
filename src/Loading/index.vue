@@ -7,7 +7,7 @@
   </div>
 </template>
 <script>
-import LoadingMonitor from './LoadingMonitor/index.vue'
+import LoadingMonitor from './LoadingMonitor/index'
 
 function preventDefault(e) {
   e.preventDefault()
