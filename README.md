@@ -1,5 +1,17 @@
 # kuan-bear-vue （vue 项目整理）
 
+# 发布步骤
+```bash
+npm run build
+npm version patch
+npm login
+npm publish
+```
+
+
+
+
+
 > 针对幻熊公司项目使用
 
 > 重新整理中...
