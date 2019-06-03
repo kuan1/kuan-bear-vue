@@ -1,5 +1,5 @@
 process.env.NODE_ENV = 'production'
 
-const { build } = require('kuan-pack-vue')
+const { build } = require('kuan-pack')
 
 build()
