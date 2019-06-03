@@ -1,6 +1,6 @@
 {
   "name": "kuan-bear-vue",
-  "version": "1.2.3@beta",
+  "version": "1.2.3",
   "description": "公司vue项目，个人习惯整理",
   "main": "lib/kuan-bear-vue",
   "scripts": {
