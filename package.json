@@ -4,7 +4,7 @@
   "description": "公司vue项目，个人习惯整理",
   "main": "lib/kuan-bear-vue",
   "scripts": {
-    "dev": "node build/dev",
+    "dev": " vuepress dev docs",
     "build": "rimraf lib && node build/build",
     "build:gh": "rimraf dist && node build/buildGh",
     "deploy": "bash ./deploy.sh",

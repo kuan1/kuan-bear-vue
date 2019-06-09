@@ -1,5 +1,5 @@
 <template>
-  <div style="padding: 20px" class="center-flex">
+  <div style="padding: 20px" class="center-flex test-container">
     <qrcode url="https:://luzhongkuan.cn" />
   </div>
 </template>

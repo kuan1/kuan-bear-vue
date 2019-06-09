@@ -8,7 +8,7 @@ import MyDebug from 'kuan-bear-vue/lib/MyDebug'
  <my-debug />
 ```
 
-## 演示
+### mydebug 演示
 
 <my-debug />
 

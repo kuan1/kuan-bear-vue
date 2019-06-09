@@ -1,5 +1,5 @@
 <template>
-  <simple-page class="test-container" title="测试页面" sub="这是一个临时测试页面">
+  <simple-page class="test-container" title="测试页面" sub="这是一个临时测试页面" tip="幻熊科技">
     <p>
       哈哈哈
     </p>

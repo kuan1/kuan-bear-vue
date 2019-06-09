@@ -1,11 +1,9 @@
 <template>
   <div class="debug-outer">
     <div class="debug-container">
-      <button
-        @click="changeConsole"
-        :class="$route.query.vconsole ? 'danger' : ''"
-        class="k-btn"
-      >{{!$route.query.vconsole ? '显示' : '隐藏'}}vconsole</button>
+      <button @click="changeConsole" :class="vconsole ? 'k-btn-danger' : ''" class="k-btn">
+        {{vconsole ? '显示' : '隐藏'}}vconsole
+      </button>
       <button @click="clearStorage" class="k-btn k-btn-danger">清空localStorage</button>
       <button @click="clearCookie" class="k-btn k-btn-danger">清空cookie</button>
       <button @click="toHome" class="k-btn k-btn-primary">返回首页</button>
@@ -16,8 +14,14 @@
 </template>
 
 <script>
+import vconsole from '../utils/vconsole'
 
 export default {
+  data() {
+    return {
+      vconsole: vconsole.vConsole
+    }
+  },
   methods: {
     clearStorage() {
       localStorage.clear()
@@ -38,10 +42,10 @@ export default {
       this.$router.push({ path: '/' })
     },
     changeConsole() {
-      if (this.$route.query.vconsole) {
-        this.$router.replace({ query: { vconsole: '' } })
+      if (this.vconsole) {
+        this.vconsole = vconsole.destroy()
       } else {
-        this.$router.replace({ query: { vconsole: 1 } })
+        this.vconsole = vconsole.init()
       }
     }
   }
@@ -53,13 +57,14 @@ export default {
   min-height: 100vh;
   background: #f7f7f7;
   overflow: hidden;
+  position: relative;
 }
 .debug-container {
   width: 350px;
   max-width: 90%;
   margin: 0 auto;
   .tip {
-    position: fixed;
+    position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;

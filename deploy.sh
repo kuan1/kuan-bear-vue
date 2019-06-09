@@ -3,7 +3,7 @@
 set -e
 username=kuan1
 repo=kuan-bear-vue
-dist=dist
+dist=docs/.vuepress/dist
 
 # build
 npm run build:gh

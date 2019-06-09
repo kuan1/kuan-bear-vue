@@ -1,5 +1,7 @@
 <template>
-  <debug />
+  <div>
+    <debug />
+  </div>
 </template>
 
 <script>
