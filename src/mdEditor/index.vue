@@ -11,7 +11,7 @@
 
 <script>
 // https://github.com/ovenslove/vue-mdEditor/blob/master/src/components/markdown.vue
-import marked from '@/utils/marked.js'
+import marked from '../utils/marked.js'
 
 import 'highlight.js/styles/androidstudio.css'
 

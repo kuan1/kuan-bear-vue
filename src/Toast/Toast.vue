@@ -1,24 +1,18 @@
 <template>
-  <div class="loading-container" v-if="visible">
+  <div class="toast-container" v-if="visible && tip">
     <div class="animated fadeIn">
-      <loading-monitor v-if="!tips" :type="type"/>
-      <div v-else class="tips" v-html="tips"></div>
+      <div class="tip" v-html="tip"></div>
     </div>
   </div>
 </template>
 <script>
-import LoadingMonitor from './LoadingMonitor/index'
-
 function preventDefault(e) {
   e.preventDefault()
 }
 
 export default {
-  components: {
-    LoadingMonitor
-  },
   props: {
-    tips: {
+    text: {
       type: String,
       default: ''
     },
@@ -29,11 +23,13 @@ export default {
   },
   data() {
     return {
-      visible: false
+      visible: false,
+      tip: this.text
     }
   },
   methods: {
-    show() {
+    show(tip = '') {
+      this.tip = tip
       this.visible = true
       document.body.addEventListener('touchmove', preventDefault)
     },
@@ -47,7 +43,7 @@ export default {
 
 <style lang="scss" scoped>
 $loading-color: rgba(0, 0, 0, 0.7);
-.loading-container {
+.toast-container {
   position: fixed;
   left: 0;
   top: 0;
@@ -57,7 +53,7 @@ $loading-color: rgba(0, 0, 0, 0.7);
   align-items: center;
   justify-content: center;
   z-index: 5000;
-  .tips {
+  .tip {
     padding: 15px 25px;
     background-color: $loading-color;
     border-radius: 5px;

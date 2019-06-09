@@ -1,5 +1,5 @@
 <template>
-  <component :is="type"/>
+  <component :is="dataType" />
 </template>
 
 <script>
@@ -17,6 +17,16 @@ export default {
     type: {
       type: String,
       default: 'Bounce'
+    }
+  },
+  data() {
+    return {
+      dataType: this.type
+    }
+  },
+  methods: {
+    show(type = 'Bounce') {
+      this.dataType = type
     }
   }
 }

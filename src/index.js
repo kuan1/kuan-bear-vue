@@ -1,18 +1,6 @@
 // 组件
-import QrCode from './QrCode'
-import MyVideo from './MyVideo'
-import HeadRoom from './HeadRoom'
-import PileCard from './PileCard'
-import MyList from './MyList'
-import MyDebug from './MyDebug'
-import VConsole from './VConsole'
-import loading from './Loading/index'
-import toast from './Toast/index'
-// import MdEditor from './MdEditor'
-import MyNav from './MyNav'
-import SimplePage from './SimplePage'
-import Lottery from './Lottery'
-import Filtrate from './Filtrate'
+import loading from './loading/index.js'
+import toast from './toast/index.js'
 
 // 自定义指令
 import directives from './utils/directives'
@@ -20,26 +8,13 @@ import directives from './utils/directives'
 // 过滤器
 import { filters } from 'kuan-utils'
 
-// 其他工具类
-import VueMonitor from './utils/VueMonitor'
+// vue extend
+import VueManage from './utils/VueManage'
 
 export {
-  VueMonitor,
-  // 组件
-  QrCode,
-  MyVideo,
-  HeadRoom,
-  PileCard,
-  MyList,
-  MyDebug,
-  VConsole,
+  VueManage,
   loading,
-  toast,
-  // MdEditor,
-  MyNav,
-  SimplePage,
-  Lottery,
-  Filtrate
+  toast
 }
 
 export default {

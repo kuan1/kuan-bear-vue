@@ -1,8 +1,9 @@
 import Vue from 'vue'
 
 /**
- * 通过js通知vue组件的显示隐藏
- * Component vue组件
+ * @description: 通过js通知vue组件的显示隐藏
+ * @param {Component} Component vue组件
+ * @return: Object{show,hide}
  */
 export default class VueMonitor {
   constructor(Component) {

@@ -1,5 +1,12 @@
 # kuan-bear-vue （vue 项目整理）
 
+
+> 针对幻熊公司项目使用
+
+> 重新整理中...
+
+[预览地址](https://kuan1.top/kuan-bear-vue/#/)
+
 # 发布步骤
 ```bash
 npm run build
@@ -9,24 +16,16 @@ npm publish
 git push --tags
 ```
 
-
-
-
-
-> 针对幻熊公司项目使用
-
-> 重新整理中...
-
-[预览地址](https://kuan1.top/kuan-bear-vue/#/)
-
 ## 使用
 
-```
+```js
 import Vue from 'vue'
 import BearVue from 'kuan-bear-vue'
+import toast from 'kuan-bear-vue/lib/toast'
 
 // 只会自动注入directives和filter
 vue.use(BearVue)
+toast('1234')
 ```
 
 ## 更新

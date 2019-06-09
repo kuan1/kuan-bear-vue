@@ -25,7 +25,7 @@ export default {
  */
 $spinkit-spinner-margin: 5px;
 $spinkit-size: 22px;
-$spinkit-spinner-color: rgba(0, 0, 0, 0.36);
+$spinkit-spinner-color: rgba(255, 255, 255, 0.8);
 $delayRange: 0.5s;
 
 .sk-three-bounce {

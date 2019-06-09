@@ -10,13 +10,13 @@
       <my-list class="list-conainer" @click="toDetail" :data="data"></my-list>
     </div>
     <div v-else>
-      <my-nav :data="data"/>
+      <my-nav :data="data" />
       <div class="test-wrap">
         <router-view></router-view>
       </div>
     </div>
 
-    <v-console/>
+    <v-console />
   </div>
 </template>
 

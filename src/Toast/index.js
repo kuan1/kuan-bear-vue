@@ -1,27 +1,15 @@
-import Vue from 'vue'
-import Loading from '../Loading/index.vue'
+import VueManage from '../utils/VueManage'
+import Toast from './Toast'
 
-const Instance = Vue.extend(Loading)
+const toast = new VueManage(Toast)
 
-let loading
 let timer
 
-export default (tips = '', time = 1500) => {
-  if (typeof window === 'undefined' || !tips) return
-  if (!loading) {
-    loading = new Instance({
-      el: document.createElement('div')
-    })
-    loading.loading = false
-    document.body.appendChild(loading.$el)
-  }
+export default (text, time = 2000) => {
   if (timer) clearTimeout(timer)
-  Vue.nextTick(() => {
-    loading.tips = tips
-    loading.show()
-
-    timer = setTimeout(() => {
-      loading.hide()
-    }, time)
-  })
+  toast.show(text)
+  timer = setTimeout(() => {
+    toast.hide()
+  }, time)
 }
+

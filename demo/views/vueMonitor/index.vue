@@ -7,7 +7,7 @@
 
 <script>
 import Test from './Test.vue'
-import VueMinor from '../../../src/utils/VueMonitor.js'
+import VueMinor from '../../../src/utils/VueManage'
 
 export default {
   data() {

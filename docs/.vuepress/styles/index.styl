@@ -1,0 +1,48 @@
+.test-container {
+  border: 1px solid #eee;
+  box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+  position relative;
+  overflow hidden;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+@keyframes swing {
+  0% {
+    transform: perspective(400px) rotateY(90deg);
+    animation-timing-function: ease-in;
+    opacity: 0;
+  }
+  40% {
+    transform: perspective(400px) rotateY(-40deg);
+    animation-timing-function: ease-in;
+  }
+  60% {
+    transform: perspective(400px) rotateY(25deg);
+    opacity: 1;
+  }
+  80% {
+    transform: perspective(400px) rotateY(-10deg);
+  }
+  100% {
+    transform: perspective(400px);
+  }
+}
+.swing {
+  animation: swing 2s;
+}
+.logo-header {
+  line-height: 2;
+  padding: 20px 0;
+  text-align: center;
+  background: white;
+}
+.test-wrap {
+  max-width: 500px;
+  min-height: 50vh;
+  margin: 20px auto;
+}
+.list-conainer {
+  width: 95%;
+  margin: 20px auto;
+}

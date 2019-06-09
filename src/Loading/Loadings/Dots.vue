@@ -24,7 +24,7 @@ export default {
 
 $spinkit-spinner-margin: 10px;
 $spinkit-size: 35px;
-$spinkit-spinner-color: rgba(0, 0, 0, 0.36);
+$spinkit-spinner-color: rgba(255, 255, 255, 0.8);
 
 .sk-chasing-dots {
   $animationDuration: 1.8s;
