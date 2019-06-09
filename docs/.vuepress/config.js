@@ -18,7 +18,8 @@ module.exports = {
       '/guide/': [
         '',
         'feedback',
-        'collect'
+        'collect',
+        'console'
       ]
     },
     nav: [ // 导航链接
