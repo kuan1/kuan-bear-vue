@@ -14,18 +14,19 @@ module.exports = {
     ['link', { rel: 'stylesheet', href: `${base}/kuan-css.css` }]
   ],
   themeConfig: {
+    sidebar: {
+      '/guide/': [
+        '',
+        'feedback',
+        'collect'
+      ]
+    },
     nav: [ // 导航链接
       { text: '首页', link: '/' },
       { text: '使用', link: '/guide/' },
       { text: 'DEMO', link: '/demo/' },
       { text: 'Github', link: 'https://github.com/kuan1/kuan-bear-vue' },
     ],
-    sidebar: {
-      '/guide/': [
-        '',
-        'feedback'
-      ]
-    }
   },
   configureWebpack: {
     resolve: {
