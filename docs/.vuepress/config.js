@@ -10,24 +10,24 @@ module.exports = {
   base, // publicPath
   title: title + ' ' + pkg.version, // 导航title
   description: '幻熊前端小组常用vue组件整理', // 网页描述
-  head: [
-    ['link', { rel: 'stylesheet', href: `${base}/kuan-css.css` }]
-  ],
+  head: [['link', { rel: 'stylesheet', href: `${base}/kuan-css.css` }]],
   themeConfig: {
     sidebar: {
-      '/guide/': [
-        '',
-        'feedback',
-        'collect',
-        'console'
-      ]
+      '/guide/': ['', 'feedback', 'collect', 'console']
     },
-    nav: [ // 导航链接
+    nav: [
+      // 导航链接
       { text: '首页', link: '/' },
       { text: '使用', link: '/guide/' },
-      { text: 'DEMO', link: '/demo/' },
-      { text: 'Github', link: 'https://github.com/kuan1/kuan-bear-vue' },
-    ],
+      {
+        text: '组件',
+        items: [
+          { text: '导航组件', link: '/views/menu' },
+          { text: '转盘抽奖', link: '/views/lottery' }
+        ]
+      },
+      { text: 'Github', link: 'https://github.com/kuan1/kuan-bear-vue' }
+    ]
   },
   configureWebpack: {
     resolve: {
@@ -36,11 +36,8 @@ module.exports = {
       }
     }
   },
-  extraWatchFiles: [
-    '../../demo',
-    '../../src'
-  ],
+  extraWatchFiles: ['../../demo', '../../src'],
   scss: {
-    includePaths: ["./public/kuan-css/index.scss"]
-  },
+    includePaths: ['./public/kuan-css/index.scss']
+  }
 }

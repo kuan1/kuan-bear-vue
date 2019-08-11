@@ -1,7 +1,16 @@
 <template>
   <div :style="{height}" class="pile-container">
     <div :style="{width}" v-if="data.length" class="card-list" :class="{'is-move': startPos}">
-      <div v-for="(item, index) in data" @touchmove.stop="bindMove" @touchend="moveEnd" @touchstart="moveStart" @mousedown="moveStart" :key="item.id || index" :style="index === data.length - 1 ? style : {}" class="card">
+      <div
+        v-for="(item, index) in data"
+        @touchmove.stop="bindMove"
+        @touchend="moveEnd"
+        @touchstart="moveStart"
+        @mousedown="moveStart"
+        :key="item.id || index"
+        :style="index === data.length - 1 ? style : {}"
+        class="card"
+      >
         <slot :item="item">
           <span>{{item}}</span>
         </slot>
@@ -122,6 +131,7 @@ export default {
 }
 .is-move .card {
   transition: none;
+  cursor: move;
 }
 .card {
   position: absolute;
@@ -133,19 +143,18 @@ export default {
   opacity: 0;
   transition: 0.5s;
   user-select: none;
-  cursor: move;
   &:last-child {
     opacity: 1;
     box-shadow: 0px 10px 30px 0px rgba(170, 143, 113, 0.3);
   }
   &:nth-last-child(2) {
     box-shadow: 0px 10px 30px 0px rgba(170, 143, 113, 0.3);
-    opacity: 0.9;
+    opacity: 0.95;
     transform: scale(0.94) translate(0, 14px);
   }
   &:nth-last-child(3) {
     box-shadow: 0px 10px 30px 0px rgba(170, 143, 113, 0.3);
-    opacity: 0.8;
+    opacity: 0.95;
     transform: scale(0.88) translate(0, 26px);
   }
 }
