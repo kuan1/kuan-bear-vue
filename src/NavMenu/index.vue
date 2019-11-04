@@ -1,28 +1,27 @@
 <template>
   <div class="menu-container">
     <div v-for="item in data" :key="item.name" class="menu-item">
-      <div
-        :style="{'padding-left': `${offset}px`}"
-        :class="{active: getName(item) === activeName, 'has-children': hasChildren(item)}"
-        @click="handleClick(item)"
-        class="menu-name"
-      >
+      <div :style="{'padding-left': `${offset}px`}" :class="{active: item.name === activeName, 'has-children': hasChildren(item)}" @click="handleClick(item)" class="menu-name">
         <span class="name">{{getName(item)}}</span>
         <div v-if="hasChildren(item)" class="menu-arrow"></div>
       </div>
-      <div v-if="item.children && item.children.length" class="menu-children">
-        <nav-menu
-          @click="handleClick"
-          :active="activeName"
-          :offset="offset + 12"
-          :data="item.children"
-        />
+      <div v-if="item.children && item.children.length && hasSelectedKey(activeName, item)" class="menu-children">
+        <nav-menu @click="handleClick" :active="activeName" :offset="offset + 12" :data="item.children" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+function hasSelectedKey(activeName, item = {}) {
+  if (item.name === activeName) return true
+  if (item.children) {
+    return item.children.some(it => hasSelectedKey(activeName, it))
+  }
+  return false
+}
+
+
 export default {
   name: 'NavMenu',
   props: {
@@ -37,16 +36,27 @@ export default {
     active: {
       type: String,
       default: ''
+    },
+    spreadKeys: {
+      type: Array,
+      default: () => []
     }
   },
   data() {
     return {
-      activeName: this.active
+      activeName: this.active,
+      spreadKeysArr: this.spreadKeys
     }
   },
   watch: {
     active(active) {
       this.activeName = active
+    },
+    spreadKeys: {
+      deep: true,
+      handler(spreadKeys) {
+        this.spreadKeysArr = spreadKeys
+      }
     }
   },
   methods: {
@@ -56,6 +66,7 @@ export default {
     hasChildren(item) {
       return item.children && item.children.length
     },
+    hasSelectedKey,
     handleClick(item) {
       this.activeName = this.getName(item)
       this.$emit('click', item)
@@ -79,7 +90,7 @@ $plain-color: #e6f7ff;
   position: relative;
   font-size: 14px;
   &::after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     right: 0;
@@ -95,6 +106,18 @@ $plain-color: #e6f7ff;
   &:hover {
     color: $primary-color;
     background: $plain-color;
+    &.has-children {
+      background: white;
+      .menu-arrow {
+        &::after,
+        &::before {
+          background: $primary-color;
+        }
+      }
+      &::after {
+        opacity: 0;
+      }
+    }
   }
   &.active {
     &::after {
@@ -110,10 +133,9 @@ $plain-color: #e6f7ff;
   transform: translateY(-50%);
   &::before,
   &::after {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
-    background: #fff;
     background: rgba(0, 0, 0, 0.65);
     width: 6px;
     height: 1.5px;
